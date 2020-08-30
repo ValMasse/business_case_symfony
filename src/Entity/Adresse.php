@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AdresseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Adresse
      * @ORM\Column(type="string", length=50)
      */
     private $commune;
+
+    /**
+     * @ORM\OneToMany(targetEntity=InfoCo::class, mappedBy="adresse")
+     */
+    private $infoCos;
+
+    public function __construct()
+    {
+        $this->infoCos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,37 @@ class Adresse
     public function setCommune(string $commune): self
     {
         $this->commune = $commune;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|InfoCo[]
+     */
+    public function getInfoCos(): Collection
+    {
+        return $this->infoCos;
+    }
+
+    public function addInfoCo(InfoCo $infoCo): self
+    {
+        if (!$this->infoCos->contains($infoCo)) {
+            $this->infoCos[] = $infoCo;
+            $infoCo->setAdresse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInfoCo(InfoCo $infoCo): self
+    {
+        if ($this->infoCos->contains($infoCo)) {
+            $this->infoCos->removeElement($infoCo);
+            // set the owning side to null (unless already changed)
+            if ($infoCo->getAdresse() === $this) {
+                $infoCo->setAdresse(null);
+            }
+        }
 
         return $this;
     }

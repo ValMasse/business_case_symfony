@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,34 @@ class Question
      * @ORM\Column(type="boolean")
      */
     private $estActif;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Domaine::class, inversedBy="questions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $domaine;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Niveau::class, inversedBy="questions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $niveau;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ReponsePossible::class, mappedBy="question", orphanRemoval=true)
+     */
+    private $reponsesPossibles;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=TestTechnique::class, inversedBy="questions")
+     */
+    private $testsTechniques;
+
+    public function __construct()
+    {
+        $this->reponsesPossibles = new ArrayCollection();
+        $this->testsTechniques = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +116,87 @@ class Question
     public function setEstActif(bool $estActif): self
     {
         $this->estActif = $estActif;
+
+        return $this;
+    }
+
+    public function getDomaine(): ?Domaine
+    {
+        return $this->domaine;
+    }
+
+    public function setDomaine(?Domaine $domaine): self
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    public function getNiveau(): ?Niveau
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?Niveau $niveau): self
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ReponsePossible[]
+     */
+    public function getReponsesPossibles(): Collection
+    {
+        return $this->reponsesPossibles;
+    }
+
+    public function addReponsesPossible(ReponsePossible $reponsesPossible): self
+    {
+        if (!$this->reponsesPossibles->contains($reponsesPossible)) {
+            $this->reponsesPossibles[] = $reponsesPossible;
+            $reponsesPossible->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponsesPossible(ReponsePossible $reponsesPossible): self
+    {
+        if ($this->reponsesPossibles->contains($reponsesPossible)) {
+            $this->reponsesPossibles->removeElement($reponsesPossible);
+            // set the owning side to null (unless already changed)
+            if ($reponsesPossible->getQuestion() === $this) {
+                $reponsesPossible->setQuestion(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TestTechnique[]
+     */
+    public function getTestsTechniques(): Collection
+    {
+        return $this->testsTechniques;
+    }
+
+    public function addTestsTechnique(TestTechnique $testsTechnique): self
+    {
+        if (!$this->testsTechniques->contains($testsTechnique)) {
+            $this->testsTechniques[] = $testsTechnique;
+        }
+
+        return $this;
+    }
+
+    public function removeTestsTechnique(TestTechnique $testsTechnique): self
+    {
+        if ($this->testsTechniques->contains($testsTechnique)) {
+            $this->testsTechniques->removeElement($testsTechnique);
+        }
 
         return $this;
     }
