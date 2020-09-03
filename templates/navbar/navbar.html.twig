@@ -1,51 +1,54 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-  <a href="{{ path('homepage') }}" style="width:33%;"><img src="img/logo.png" alt="logo_human_booster"/></a>
-    <ul class="navbar-nav mx-auto" style="width:33%;">
+	<div class="collapse navbar-collapse" id="navbarColor03">
+		<a href="{{ path('homepage') }}" style="width:33%;"><img src="img/logo.png" alt="logo_human_booster"/></a>
+		<ul
+			class="navbar-nav mx-auto" style="width:33%;">
 
-      {# ...  Si l'user est déconnecté  #}
-      {% if not app.user %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
-            </li>
-            {% endif %}
+			{# ...  Si l'user est déconnecté  #}
+			{% if not app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+				</li>
+			{% endif %}
 
-            {% if not app.user %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login') }}">Se Connecter !</a>
-            </li>
-            {% endif %}
+			{% if not app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_login') }}">Se Connecter !</a>
+				</li>
+			{% endif %}
 
-            {% if app.user %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_logout') }}">Se Déconnecter</a>
-            </li>
-            {% endif %}
+			{% if app.user %}
+				<li class="nav-item">
+					<h6 class="nav-link">Bienvenue<br>             
+						{{ app.user.firstname }}          
+						{{ app.user.lastname }}</h6>
+				</li>
+			{% endif %}
 
-      {# ...  Si l'user est connecté  #}
+			{# ...  Si l'user est connecté  #}
       {% if app.user %}
-      <li class="nav-item">
-        <h6 class="nav-link">Bienvenue {{ app.user.firstname }} {{ app.user.lastname }}</h6>
-      </li>
-      {% endif %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('homepage') }}">Accueil</a>
+				</li>
+			{% endif %}
 
-      {% if app.user %}
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('user_profile') }}">Mon Profil</a>
-      </li>
-      {% endif %}
+			{% if app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('user_profile') }}">Mon Profil</a>
+				</li>
+			{% endif %}
 
-      {% if app.user %}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Passer le test !</a>
-      </li>
-      {% endif %}
+			{% if app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_logout') }}">Se Déconnecter</a>
+				</li>
+			{% endif %}
 
-    </ul>
-    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" style="width:33%;">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
-    </form>
-  </div>
+		</ul>
+		<form class="form-inline my-2 my-lg-0 d-flex justify-content-end" style="width:33%;">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+		</form>
+	</div>
 </nav>
