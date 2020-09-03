@@ -58,6 +58,26 @@ class User implements UserInterface
      */
     private $reponsesPossibles;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateDeNaissance;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $numeroPE;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentaire;
+
     public function __construct()
     {
         $this->infosCos = new ArrayCollection();
@@ -214,6 +234,54 @@ class User implements UserInterface
         if ($this->reponsesPossibles->contains($reponsesPossible)) {
             $this->reponsesPossibles->removeElement($reponsesPossible);
         }
+
+        return $this;
+    }
+
+    public function getDateDeNaissance(): ?\DateTimeInterface
+    {
+        return $this->dateDeNaissance;
+    }
+
+    public function setDateDeNaissance(?\DateTimeInterface $dateDeNaissance): self
+    {
+        $this->dateDeNaissance = $dateDeNaissance;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getNumeroPE(): ?string
+    {
+        return $this->numeroPE;
+    }
+
+    public function setNumeroPE(?string $numeroPE): self
+    {
+        $this->numeroPE = $numeroPE;
+
+        return $this;
+    }
+
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire(?string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
 
         return $this;
     }
