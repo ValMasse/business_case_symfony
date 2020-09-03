@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,8 +16,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -35,6 +37,32 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=InfoCo::class, inversedBy="users")
+     */
+    private $infosCos;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ReponsePossible::class, inversedBy="users")
+     */
+    private $reponsesPossibles;
+
+    public function __construct()
+    {
+        $this->infosCos = new ArrayCollection();
+        $this->reponsesPossibles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,5 +140,81 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|InfoCo[]
+     */
+    public function getInfosCos(): Collection
+    {
+        return $this->infosCos;
+    }
+
+    public function addInfosCo(InfoCo $infosCo): self
+    {
+        if (!$this->infosCos->contains($infosCo)) {
+            $this->infosCos[] = $infosCo;
+        }
+
+        return $this;
+    }
+
+    public function removeInfosCo(InfoCo $infosCo): self
+    {
+        if ($this->infosCos->contains($infosCo)) {
+            $this->infosCos->removeElement($infosCo);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ReponsePossible[]
+     */
+    public function getReponsesPossibles(): Collection
+    {
+        return $this->reponsesPossibles;
+    }
+
+    public function addReponsesPossible(ReponsePossible $reponsesPossible): self
+    {
+        if (!$this->reponsesPossibles->contains($reponsesPossible)) {
+            $this->reponsesPossibles[] = $reponsesPossible;
+        }
+
+        return $this;
+    }
+
+    public function removeReponsesPossible(ReponsePossible $reponsesPossible): self
+    {
+        if ($this->reponsesPossibles->contains($reponsesPossible)) {
+            $this->reponsesPossibles->removeElement($reponsesPossible);
+        }
+
+        return $this;
     }
 }

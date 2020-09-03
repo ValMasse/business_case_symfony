@@ -43,13 +43,13 @@ class InfoCo
     private $testTechnique;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Candidat::class, mappedBy="infosCos")
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="infosCos")
      */
-    private $candidats;
+    private $users;
 
     public function __construct()
     {
-        $this->candidats = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,28 +106,28 @@ class InfoCo
     }
 
     /**
-     * @return Collection|Candidat[]
+     * @return Collection|User[]
      */
-    public function getCandidats(): Collection
+    public function getUsers(): Collection
     {
-        return $this->candidats;
+        return $this->users;
     }
 
-    public function addCandidat(Candidat $candidat): self
+    public function addUser(User $user): self
     {
-        if (!$this->candidats->contains($candidat)) {
-            $this->candidats[] = $candidat;
-            $candidat->addInfosCo($this);
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addInfosCo($this);
         }
 
         return $this;
     }
 
-    public function removeCandidat(Candidat $candidat): self
+    public function removeUser(User $user): self
     {
-        if ($this->candidats->contains($candidat)) {
-            $this->candidats->removeElement($candidat);
-            $candidat->removeInfosCo($this);
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeInfosCo($this);
         }
 
         return $this;

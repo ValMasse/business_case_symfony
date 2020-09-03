@@ -46,14 +46,15 @@ class ReponsePossible
     private $question;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Candidat::class, mappedBy="reponsesPossibles")
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="reponsesPossibles")
      */
-    private $candidats;
+    private $users;
 
     public function __construct()
     {
-        $this->candidats = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -121,28 +122,28 @@ class ReponsePossible
     }
 
     /**
-     * @return Collection|Candidat[]
+     * @return Collection|User[]
      */
-    public function getCandidats(): Collection
+    public function getUsers(): Collection
     {
-        return $this->candidats;
+        return $this->users;
     }
 
-    public function addCandidat(Candidat $candidat): self
+    public function addUser(User $user): self
     {
-        if (!$this->candidats->contains($candidat)) {
-            $this->candidats[] = $candidat;
-            $candidat->addReponsesPossible($this);
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addReponsesPossible($this);
         }
 
         return $this;
     }
 
-    public function removeCandidat(Candidat $candidat): self
+    public function removeUser(User $user): self
     {
-        if ($this->candidats->contains($candidat)) {
-            $this->candidats->removeElement($candidat);
-            $candidat->removeReponsesPossible($this);
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeReponsesPossible($this);
         }
 
         return $this;
