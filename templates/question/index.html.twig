@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Position</th>
-                <th>Enonce</th>
+                <th>Enoncé</th>
                 <th>EstEliminatoire</th>
                 <th>EstActif</th>
                 <th>actions</th>
@@ -25,17 +25,19 @@
                 <td>{{ question.estEliminatoire ? 'Yes' : 'No' }}</td>
                 <td>{{ question.estActif ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
-                    <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
+                    <a href="{{ path('question_show', {'id': question.id}) }}">détails</a>
+                    <a href="{{ path('question_edit', {'id': question.id}) }}">éditer</a>
+
+
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Pas de résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('question_new') }}">Create new</a>
+    <a href="{{ path('question_new') }}">Créer une nouvelle Question</a>
 {% endblock %}
