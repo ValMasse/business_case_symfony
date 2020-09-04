@@ -41,6 +41,11 @@ class Session
      */
     private $infoCos;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ChefProjet::class, inversedBy="sessions")
+     */
+    private $chefProjet;
+
     public function __construct()
     {
         $this->infoCos = new ArrayCollection();
@@ -114,6 +119,18 @@ class Session
                 $infoCo->setSession(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getChefProjet(): ?ChefProjet
+    {
+        return $this->chefProjet;
+    }
+
+    public function setChefProjet(?ChefProjet $chefProjet): self
+    {
+        $this->chefProjet = $chefProjet;
 
         return $this;
     }

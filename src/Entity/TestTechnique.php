@@ -29,6 +29,11 @@ class TestTechnique
      */
     private $infoCos;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Administrateur::class, inversedBy="testsTechniques")
+     */
+    private $administrateur;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -95,6 +100,18 @@ class TestTechnique
                 $infoCo->setTestTechnique(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAdministrateur(): ?Administrateur
+    {
+        return $this->administrateur;
+    }
+
+    public function setAdministrateur(?Administrateur $administrateur): self
+    {
+        $this->administrateur = $administrateur;
 
         return $this;
     }

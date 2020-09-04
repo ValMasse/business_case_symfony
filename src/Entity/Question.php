@@ -61,10 +61,16 @@ class Question
      */
     private $testsTechniques;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Administrateur::class, mappedBy="questions")
+     */
+    private $administrateurs;
+
     public function __construct()
     {
         $this->reponsesPossibles = new ArrayCollection();
         $this->testsTechniques = new ArrayCollection();
+        $this->administrateurs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +202,34 @@ class Question
     {
         if ($this->testsTechniques->contains($testsTechnique)) {
             $this->testsTechniques->removeElement($testsTechnique);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Administrateur[]
+     */
+    public function getAdministrateurs(): Collection
+    {
+        return $this->administrateurs;
+    }
+
+    public function addAdministrateur(Administrateur $administrateur): self
+    {
+        if (!$this->administrateurs->contains($administrateur)) {
+            $this->administrateurs[] = $administrateur;
+            $administrateur->addQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdministrateur(Administrateur $administrateur): self
+    {
+        if ($this->administrateurs->contains($administrateur)) {
+            $this->administrateurs->removeElement($administrateur);
+            $administrateur->removeQuestion($this);
         }
 
         return $this;
