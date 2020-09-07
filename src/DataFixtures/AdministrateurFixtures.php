@@ -13,6 +13,7 @@ class AdministrateurFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        // ADMIN N°1
         $admin1 = new Administrateur();
         $admin1->setPrenom("Jean-Jacques");
         $admin1->setNom("Silverman");
@@ -21,9 +22,18 @@ class AdministrateurFixtures extends Fixture
             $this->encoder->encodePassword($admin1, "azerty")
         );
         $admin1->setRoles(["ROLE_ADMIN"]);
-        // manque liste de test techniques et de questions
-
         $manager->persist($admin1);
+
+        // ADMIN N°2
+        $admin2 = new Administrateur();
+        $admin2->setPrenom("valentin");
+        $admin2->setNom("masse");
+        $admin2->setEmail("valmasse@gmail.com");
+        $admin2->setPassword(
+            $this->encoder->encodePassword($admin1, "azerty2")
+        );
+        $admin2->setRoles(["ROLE_ADMIN"]);
+        $manager->persist($admin2);
 
         $manager->flush();
     }
