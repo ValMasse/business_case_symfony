@@ -31,7 +31,8 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question->setEstActif(false);
         $question->setDomaine($this->domaineRepository->find(random_int(1, 4)));
         $question->setNiveau($this->niveauRepository->find(random_int(1, 3)));
-        $manager->persist($question);        }
+        $manager->persist($question);        
+        }
 
         $manager->flush();
 
