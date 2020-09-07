@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit InfoCo{% endblock %}
+
+{% block body %}
+    <h1>Edit InfoCo</h1>
+
+    {{ include('info_co/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('info_co_index') }}">back to list</a>
+
+    {{ include('info_co/_delete_form.html.twig') }}
+{% endblock %}
