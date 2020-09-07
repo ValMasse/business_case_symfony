@@ -30,7 +30,7 @@ class SessionFixtures extends Fixture implements DependentFixtureInterface
         for($i = 0; $i < 10; $i++){        
         $session = new Session();
         $session->setNumero(random_int(1, 10));
-        $session->setVilleSession($this->villeSessionRepository->find((random_int(1, 10))));
+        $session->setVilleSession($this->villeSessionRepository->find((random_int(1, 4))));
         $session->setFormation($this->formationRepository->find((random_int(1, 4))));
         $session->setChefProjet($this->chefProjetRepository->find((random_int(1, 2))));
         $manager->persist($session);
