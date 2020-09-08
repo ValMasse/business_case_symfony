@@ -1,3 +1,17 @@
+/* page création de compte/accueil */ 
+@font-face {
+  font-family: 'gothic_regular';
+  src: url('../assets/ITC\ Avant\ Garde\ Gothic\ LT\ Book\ Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'gothic_bold';
+  src: url('../assets/ITC\ Avant\ Garde\ Gothic\ LT\ Bold.otf') format('opentype');
+}
+
+* {
+  font-family: 'gothic_regular', sans-serif;
+}
 
 /*FOOTER*/
 
@@ -129,7 +143,10 @@ ul.social-network li {
   margin-left: 50px;
 }
 
-/* page création de compte */ 
+/* page création de compte/accueil */ 
+.titre {
+  text-align: center;
+}
 
 
 

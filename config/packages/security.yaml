@@ -14,10 +14,18 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\ChefProjet
+                class: App\Entity\User
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
+        app_admin_provider:
+            entity:
+                class: App\Entity\Administrateur
+                property: email
         # used to reload user from session & other features (e.g. switch_user)
+        app_chefProjet_provider:
+            entity:
+                class: App\Entity\ChefProjet
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

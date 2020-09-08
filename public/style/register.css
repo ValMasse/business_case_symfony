@@ -1,0 +1,32 @@
+/* page création de compte/accueil */ 
+@font-face {
+    font-family: 'gothic_regular';
+    src: url('../assets/ITC\ Avant\ Garde\ Gothic\ LT\ Book\ Regular.otf') format('opentype');
+  }
+
+@font-face {
+    font-family: 'gothic_bold';
+    src: url('../assets/ITC\ Avant\ Garde\ Gothic\ LT\ Bold.otf') format('opentype');
+  }
+  
+* {
+    font-family: 'gothic_regular', sans-serif;
+  }
+
+.titre {
+    text-align: center;
+    font-family: 'gothic_bold', sans-serif;
+  }
+
+.form-check {
+    text-align: center;
+}
+
+.boutonJaune {
+    text-align: center;
+}
+
+/* .required {
+    font-weight:400;
+} */
+

@@ -21,17 +21,21 @@ class UserFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        $user1 = new User;
-        $user1->setFirstname($faker->firstNameMale || $faker->firstNameFemale);
-        $user1->setLastname($faker->lastName);
-        $user1->setEmail($faker->email);        
-        $user1->setPassword(
-            $this->encoder->encodePassword($user1, "123456")
+        for($i = 0; $i < 60; $i++){        
+        $user = new User;
+        $user->setFirstname($faker->firstName);
+        $user->setLastname($faker->lastName);
+        $user->setEmail($faker->email);        
+        $user->setPassword(
+            $this->encoder->encodePassword($user, "123456")
         );
-        $user1->setDateDeNaissance($faker->dateTimeBetween("- 60 year", "- 20 year"));
-        $user1->setTelephone($faker->phonenumber);
-        $user1->setNumeroPE(random_int(1000000000, 9999999999));
-        $user1->setRoles(["ROLE_USER"]);   
+        $user->setDateDeNaissance($faker->dateTimeBetween("- 60 year", "- 20 year"));
+        $user->setTelephone($faker->phonenumber);
+        $user->setNumeroPE(random_int(1000000000, 9999999999));
+        $user->setCommentaire("");
+        $user->setRoles(["ROLE_USER"]);
+        $manager->persist($user);
+        }   
 
         $manager->flush();
     }
