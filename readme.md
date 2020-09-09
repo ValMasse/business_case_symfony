@@ -60,5 +60,12 @@ exemple ==> " DATABASE_URL=mysql://root:@127.0.0.1:3308/la_bonne_voiture?serverV
 
     Ceci effacera toutes les données présentes en base de données, puis cela va les créer de nouveau !
 
+8°) Tester l'application :
+
+Les utilisateurs suivants sont disponibles :
+
+Statut administrateur : Login : admin@admin.com / Mot de passe : admin@admin.com
+Statut Chef de Projet : charleneducreux@humanbooster.com / Mot de passe : charleneducreux@humanbooster.com
+
 Merci pour votre intérêt concernant notre projet et .... ENJOY !!
 

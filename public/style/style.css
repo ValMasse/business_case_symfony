@@ -153,5 +153,7 @@ ul.social-network li {
   text-align: center;
 }
 
-
-
+.boutonJaune {
+  display: flex;
+  margin: auto;
+}
