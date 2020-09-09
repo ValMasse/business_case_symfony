@@ -35,7 +35,31 @@ class UserFixtures extends Fixture
         $user->setCommentaire("");
         $user->setRoles(["ROLE_USER"]);
         $manager->persist($user);
-        }   
+        }
+        
+        // Création User avec droits admin
+        $userAdmin = new User();
+        $userAdmin->setEmail("admin@admin.com");
+        $userAdmin->setFirstname("John");
+        $userAdmin->setLastname("Doe");
+        $userAdmin->setPassword(
+            $this->encoder->encodePassword($userAdmin, "admin@admin.com")
+        );
+        $userAdmin->setRoles(["ROLE_ADMIN"]);
+        $manager->persist($userAdmin);
+
+        $manager->flush();
+
+        // Création User avec droits du Chef de Projet
+        $userchefProjet = new User();
+        $userchefProjet->setEmail("charleneducreux@humanbooster.com");
+        $userchefProjet->setFirstname("Charlène");
+        $userchefProjet->setLastname("Ducreux");
+        $userchefProjet->setPassword(
+            $this->encoder->encodePassword($userchefProjet, "charleneducreux@humanbooster.com")
+        );
+        $userchefProjet->setRoles(["ROLE_CHEFPROJET"]);
+        $manager->persist($userchefProjet);
 
         $manager->flush();
     }

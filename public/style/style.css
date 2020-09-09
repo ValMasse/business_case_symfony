@@ -47,6 +47,11 @@ footer a:hover {
   margin-left: 50px;
 }
 
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
 
 /*SOCİAL İCONS*/
 

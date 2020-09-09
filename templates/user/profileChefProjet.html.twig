@@ -3,16 +3,14 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
-    <h1>Profil de {{ app.user.firstname }}</h1>
+    <h1>Profil du Chef de Projet{{ app.user.firstname }}</h1>
     <div class="row">
             <div class="col-4 mb-1">
-                <div class="card"><img src="https://www.itn-namur.be/images/t2.jpg" alt="">
+                <div class="card"><img src="img/admin.png" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ app.user.firstname }}  {{ app.user.lastname }}</h5>
                         <p class="card-text">Mon adresse mail: {{ app.user.email }}</p>
                         <p class="card-text">Mon numéro de Téléphone: {{ app.user.telephone }}</p>
-                        <p class="card-text">Mon identifiant Pole-Emploi: {{ app.user.numeroPE }}</p>
-                        <p class="card-text">Commentaires: {{ app.user.commentaire }}</p>
                     </div>
                 </div>
             </div>

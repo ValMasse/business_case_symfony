@@ -21,9 +21,9 @@ class ChefProjetFixtures extends Fixture
     {
         // CHEF PROJET N°1
         $chefProjet1 = new ChefProjet();
-        $chefProjet1->setPrenom("Charlène");
-        $chefProjet1->setNom("Ducreux");
-        $chefProjet1->setEmail("charleneducreux@humanbooster.com");
+        $chefProjet1->setPrenom("Emilie");
+        $chefProjet1->setNom("Dupuis");
+        $chefProjet1->setEmail("emiliedupuis@humanbooster.com");
         $chefProjet1->setPassword(
             $this->encoder->encodePassword($chefProjet1, "qwerty")
         );

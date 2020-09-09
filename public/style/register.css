@@ -26,7 +26,8 @@
     text-align: center;
 }
 
-/* .required {
-    font-weight:400;
-} */
+.row {
+  display: flex;
+  justify-content: space-around;
+}
 
