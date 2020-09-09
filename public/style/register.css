@@ -15,7 +15,6 @@
 
 .titre {
     text-align: center;
-    font-family: 'gothic_bold', sans-serif;
   }
 
 .form-check {
@@ -23,7 +22,7 @@
 }
 
 .boutonJaune {
-    text-align: center;
+    display: block;
 }
 
 .row {
