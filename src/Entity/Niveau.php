@@ -81,4 +81,9 @@ class Niveau
 
         return $this;
     }
+
+    public function __toString()
+    {
+    return (string) $this->getIntitule();
+    }
 }

@@ -16,23 +16,23 @@
                 <td>{{ question.position }}</td>
             </tr>
             <tr>
-                <th>Enonce</th>
+                <th>Enoncé</th>
                 <td>{{ question.enonce }}</td>
             </tr>
             <tr>
-                <th>EstEliminatoire</th>
+                <th>Est Eliminatoire ?</th>
                 <td>{{ question.estEliminatoire ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>EstActif</th>
-                <td>{{ question.estActif ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
+    <button type="button" class="btn btn-info">
     <a href="{{ path('question_index') }}">back to list</a>
+    </button>
 
+    <button type="button" class="btn btn-warning">
     <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
+    </button>
 
     {{ include('question/_delete_form.html.twig') }}
 {% endblock %}
