@@ -3,11 +3,13 @@
 {% block title %}Edit Session{% endblock %}
 
 {% block body %}
-    <h1>Edit Session</h1>
+    <h1>Modification d'une Session</h1>
 
-    {{ include('session/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('session/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('session_index') }}">back to list</a>
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('session_index') }}">retour à la lists</a>
+    </button>
 
     {{ include('session/_delete_form.html.twig') }}
 {% endblock %}

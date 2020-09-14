@@ -3,13 +3,13 @@
 {% block title %}Session index{% endblock %}
 
 {% block body %}
-    <h1>Session index</h1>
+    <h1>Session index</h1><br>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Numero</th>
+                <th>Numéro</th>
+                <th>Date</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,17 +19,23 @@
                 <td>{{ session.id }}</td>
                 <td>{{ session.numero }}</td>
                 <td>
-                    <a href="{{ path('session_show', {'id': session.id}) }}">show</a>
-                    <a href="{{ path('session_edit', {'id': session.id}) }}">edit</a>
+                    <button type="button" class="btn btn-secondary">
+                    <a href="{{ path('session_show', {'id': session.id}) }}">Détails</a>
+                    </button>
+
+                    <button type="button" class="btn btn-info">
+                    <a href="{{ path('session_edit', {'id': session.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de Résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('session_new') }}">Create new</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('session_new') }}">Créer une nouvelle Session</a>
+    </button>
 {% endblock %}

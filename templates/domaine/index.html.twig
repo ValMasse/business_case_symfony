@@ -3,15 +3,15 @@
 {% block title %}Domaine index{% endblock %}
 
 {% block body %}
-    <h1>Domaine index</h1>
+    <h1>Liste des Domaines</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Intitule</th>
+                <th>Intitulé</th>
                 <th>Position</th>
-                <th>RatioMinimum</th>
+                <th>Ratio Minimum</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,17 +23,23 @@
                 <td>{{ domaine.position }}</td>
                 <td>{{ domaine.ratioMinimum }}</td>
                 <td>
-                    <a href="{{ path('domaine_show', {'id': domaine.id}) }}">show</a>
-                    <a href="{{ path('domaine_edit', {'id': domaine.id}) }}">edit</a>
+                    <button type="button" class="btn btn-secondary">
+                    <a href="{{ path('domaine_show', {'id': domaine.id}) }}">Détails</a>
+                    </button>
+                    <button type="button" class="btn btn-info">
+                    <a href="{{ path('domaine_edit', {'id': domaine.id}) }}">Modifier</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas de Résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('domaine_new') }}">Create new</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('domaine_new') }}">Créer un nouveau Domaine</a>
+    </button>
 {% endblock %}

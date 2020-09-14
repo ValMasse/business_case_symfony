@@ -3,11 +3,13 @@
 {% block title %}Edit Domaine{% endblock %}
 
 {% block body %}
-    <h1>Edit Domaine</h1>
+    <h1>Modifier Domaine</h1>
 
-    {{ include('domaine/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('domaine/_form.html.twig', {'button_label': 'modifier'}) }}
 
-    <a href="{{ path('domaine_index') }}">back to list</a>
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('domaine_index') }}">retour à la liste</a>
+    </button>
 
     {{ include('domaine/_delete_form.html.twig') }}
 {% endblock %}

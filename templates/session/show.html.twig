@@ -12,15 +12,23 @@
                 <td>{{ session.id }}</td>
             </tr>
             <tr>
-                <th>Numero</th>
+                <th>Numéro</th>
                 <td>{{ session.numero }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ session.date }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('session_index') }}">back to list</a>
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('session_index') }}">retour à la liste</a>
+    </button>
 
-    <a href="{{ path('session_edit', {'id': session.id}) }}">edit</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('session_edit', {'id': session.id}) }}">modifier</a>
+    </button>
 
     {{ include('session/_delete_form.html.twig') }}
 {% endblock %}

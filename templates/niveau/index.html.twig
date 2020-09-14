@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Intitule</th>
+                <th>Intitulé</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,17 +19,24 @@
                 <td>{{ niveau.id }}</td>
                 <td>{{ niveau.intitule }}</td>
                 <td>
-                    <a href="{{ path('niveau_show', {'id': niveau.id}) }}">show</a>
-                    <a href="{{ path('niveau_edit', {'id': niveau.id}) }}">edit</a>
+                    <button type="button" class="btn btn-secondary">
+                    <a href="{{ path('niveau_show', {'id': niveau.id}) }}">Détails</a>
+                    </button>
+
+                    <button type="button" class="btn btn-info">
+                    <a href="{{ path('niveau_edit', {'id': niveau.id}) }}">Modifier</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de Résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('niveau_new') }}">Create new</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('niveau_new') }}">Créer un nouveau Niveau</a>
+    </button>
 {% endblock %}
