@@ -17,19 +17,26 @@
         {% for info_co in info_cos %}
             <tr>
                 <td>{{ info_co.id }}</td>
-                <td>{{ info_co.date ? info_co.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ info_co.date ? info_co.date|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('info_co_show', {'id': info_co.id}) }}">show</a>
-                    <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">edit</a>
+                    <button type="button" class="btn btn-secondary">
+                    <a href="{{ path('info_co_show', {'id': info_co.id}) }}">Détails</a>
+                    </button>
+
+                    <button type="button" class="btn btn-info">
+                    <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">Modifier</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de Résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('info_co_new') }}">Create new</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('info_co_new') }}">Créer nouvelle InfoCo</a>
+    </button>
 {% endblock %}

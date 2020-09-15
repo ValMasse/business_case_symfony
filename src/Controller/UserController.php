@@ -58,12 +58,11 @@ class UserController extends AbstractController
      * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/index", name="user_index", methods={"GET"})
      */
-    public function index(UserRepository $userRepository)//: Response
+    public function index(UserRepository $userRepository): Response
     {
-        var_dump($userRepository->findAll());
-        /*return $this->render('user/index.html.twig', [
+        return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
-        ]);*/
+        ]);
     }
 
     /**
