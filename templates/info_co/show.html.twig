@@ -3,24 +3,32 @@
 {% block title %}InfoCo{% endblock %}
 
 {% block body %}
-    <h1>InfoCo</h1>
+    <h1>Réunion d'Information N° {{ info_co.id }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ info_co.id }}</td>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Numéro de la Session</th>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ info_co.date ? info_co.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ info_co.id }}</td>
+                <td>{{ info_co.date ? info_co.date|date('d-m-Y') : '' }}</td>
+                <td>{{ info_co.adresse }}</td>
+                <td>{{ info_co.session }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('info_co_index') }}">back to list</a>
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('info_co_index') }}">retour à la liste</a>
+    </button>
 
-    <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">edit</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">Modifier</a>
+    </button>
 
     {{ include('info_co/_delete_form.html.twig') }}
 {% endblock %}
