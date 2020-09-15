@@ -9,23 +9,26 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>DateDeNaissance</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date De Naissance</th>
                 <th>Email</th>
-                <th>Telephone</th>
-                <th>NumeroPE</th>
-                <th>Commentaire</th>
+                <th>Téléphone</th>
+                <th>Numero Pole-Emploi</th>
+                <th>Commentaires</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
+
+        
         {% for user in users %}
+            {% if user.roles == "ROLE_ADMIN" %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
-                <td>{{ user.dateDeNaissance ? user.dateDeNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.dateDeNaissance ? user.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.telephone }}</td>
                 <td>{{ user.numeroPE }}</td>
@@ -39,6 +42,7 @@
                     </button>
                 </td>
             </tr>
+            {% endif %}
         {% else %}
             <tr>
                 <td colspan="11">Pas de Résultats</td>

@@ -58,14 +58,16 @@ class UserController extends AbstractController
      * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/index", name="user_index", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository)//: Response
     {
-        return $this->render('user/index.html.twig', [
+        var_dump($userRepository->findAll());
+        /*return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
-        ]);
+        ]);*/
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -89,6 +91,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
@@ -99,6 +102,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, User $user): Response
@@ -119,6 +123,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
      */
     public function delete(Request $request, User $user): Response
