@@ -1,41 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Session index{% endblock %}
+{% block title %}TestTechnique index{% endblock %}
 
 {% block body %}
-    <h1>Session index</h1><br>
+    <h1>Tests Techniques</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Numéro</th>
-                <th>Lieu</th>
+                <th>Id</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for session in sessions %}
+        {% for test_technique in test_techniques %}
             <tr>
-                <td>{{ session.id }}</td>
-                <td>{{ session.villeSession }}</td>
+                <td>{{ test_technique.id }}</td>
                 <td>
                     <button type="button" class="btn btn-secondary">
-                    <a href="{{ path('session_show', {'id': session.id}) }}">Détails</a>
+                    <a href="{{ path('test_technique_show', {'id': test_technique.id}) }}">Détails</a>
                     </button>
 
                     <button type="button" class="btn btn-info">
-                    <a href="{{ path('session_edit', {'id': session.id}) }}">Modifier</a>
+                    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Modifier</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">Pas de Résultats</td>
+                <td colspan="2">Pas de Résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <button type="button" class="btn btn-warning">
-    <a href="{{ path('session_new') }}">Créer une nouvelle Session</a>
+    <a href="{{ path('test_technique_new') }}">Créer un Test Technique</a>
     </button>
 {% endblock %}

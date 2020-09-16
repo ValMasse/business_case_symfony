@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @IsGranted("ROLE_CHEFPROJET")
  * @Route("/info/co")
  */
 class InfoCoController extends AbstractController
@@ -28,6 +27,7 @@ class InfoCoController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/new", name="info_co_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -51,6 +51,7 @@ class InfoCoController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}", name="info_co_show", methods={"GET"})
      */
     public function show(InfoCo $infoCo): Response
@@ -61,6 +62,7 @@ class InfoCoController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}/edit", name="info_co_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, InfoCo $infoCo): Response
@@ -81,6 +83,7 @@ class InfoCoController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}", name="info_co_delete", methods={"DELETE"})
      */
     public function delete(Request $request, InfoCo $infoCo): Response

@@ -139,4 +139,16 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+
+    // PLANNING - GESTION DES ENTRETIENS AVEC LES CANDIDATS (Chef de Projet)
+    /**
+     * @IsGranted("ROLE_CHEFPROJET")
+     * @Route("/agenda", name="agenda_index", methods={"GET","POST"})
+     */
+    public function indexPlanning(UserRepository $userRepository): Response
+    {
+        return $this->render('user/agenda.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
 }

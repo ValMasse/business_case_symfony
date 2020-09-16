@@ -7,7 +7,7 @@
 		<ul
 			class="navbar-nav mx-auto" style="width:33%;">
 
-			{# ...  Si l'user est déconnecté  #}
+			{# ...  Connexion / Inscription  #}
 			{% if not app.user %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
@@ -35,13 +35,15 @@
 				</li>
 			{% endif %}
 
+			{# ...  Pages PROFIL  #}
+
 			{% if (is_granted('ROLE_ADMIN') and (app.user)) %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('user_profile_admin') }}">Mon Profil ( en mode administrateur)</a>
 				</li>
 				{% elseif (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('user_profile_chefProjet') }}">Mon Profil (mode Chef de Projet)</a>
+					<a class="nav-link" href="{{ path('user_profile_chefProjet') }}">Mon Profil (en mode Chef de Projet)</a>
 				</li>
 				{% elseif app.user %}
 				<li class="nav-item">
@@ -49,12 +51,51 @@
 				</li>
 			{% endif %}
 
+			{# ...  Menu déroulant - standard User  #}
+			{% if (is_granted('ROLE_USER') and (app.user)) %}
+				<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
+        			<div class="dropdown-menu">
+          			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
+          			<a class="dropdown-item" href="{{ path('domaine_index') }}">Contact</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{ path('domaine_index') }}">Passer le Test</a>
+          			<div class="dropdown-divider"></div>
+          			<a class="dropdown-item" href="{{ path('info_co_index') }}">Voir les Résultats</a>
+        			</div> {# ...  A FINIR  #}
+     			</li>
+			{% endif %}
+
+			{# ...  Menu déroulant - Chef de Projet !  #}
 			{% if (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('user_index') }}">Liste des Candidats</a>
-				</li>
+				<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
+        			<div class="dropdown-menu">
+          			<a class="dropdown-item" href="{{ path('user_index') }}">Liste des Candidats</a>
+          			<a class="dropdown-item" href="{{ path('session_index') }}">Index des Sessions</a>
+          			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
+          			<div class="dropdown-divider"></div>
+          			<a class="dropdown-item" href="{{ path('agenda_index') }}">Planning des Entretiens</a>
+        			</div>
+     			</li>
 			{% endif %}	
-								
+
+			{# ...  Menu déroulant - Administrateur  #}
+			{% if (is_granted('ROLE_ADMIN') and (app.user)) %}
+				<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
+        			<div class="dropdown-menu">
+          			<a class="dropdown-item" href="{{ path('test_technique_index') }}">Tests Techniques</a>
+          			<a class="dropdown-item" href="{{ path('domaine_index') }}">Index des Domaines</a>
+          			<a class="dropdown-item" href="{{ path('question_index') }}">Liste des Questions</a>
+					  <a class="dropdown-item" href="{{ path('niveau_index') }}">Index des Niveaux</a>
+          			<div class="dropdown-divider"></div>
+          			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
+        			</div>
+     			</li>
+			{% endif %}
+
+								{# ...  Déconnexion  #}	
 
 			{% if app.user %}
 				<li class="nav-item">

@@ -3,7 +3,7 @@
 {% block title %}InfoCo index{% endblock %}
 
 {% block body %}
-    <h1>InfoCo index</h1>
+    <h1>Réunions d'informations</h1>
 
     <table class="table">
         <thead>
@@ -27,9 +27,11 @@
                     <a href="{{ path('info_co_show', {'id': info_co.id}) }}">Détails</a>
                     </button>
 
+                    {% if (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
                     <button type="button" class="btn btn-info">
                     <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">Modifier</a>
                     </button>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -40,7 +42,9 @@
         </tbody>
     </table>
 
+    {% if (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
     <button type="button" class="btn btn-warning">
     <a href="{{ path('info_co_new') }}">Créer nouvelle InfoCo</a>
     </button>
+    {% endif %}
 {% endblock %}
