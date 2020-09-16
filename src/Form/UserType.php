@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UserType extends AbstractType
 {
@@ -16,8 +17,13 @@ class UserType extends AbstractType
 
         $builder
             ->add('email')
-            ->add('roles', EntityType::class, [
-                'class' => User::class,
+            ->add('role', ChoiceType::class, [
+                'mapped' => false,
+                'choices' => [
+                    'candidat' => 'ROLE_USER',
+                    'Compte administrateur' => 'ROLE_ADMIN',
+                    'Compte chef de projet' => 'ROLE_CHEFPROJET',
+                ]
             ])
             ->add('password')
             ->add('firstname')
