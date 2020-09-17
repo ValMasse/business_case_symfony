@@ -153,6 +153,9 @@ class UserController extends AbstractController
     }
 
     // EDITION POUR CHAQUE UTILISATEUR DE SON PROFIL PERSONNEL
+
+    // USER STANDARD
+
     /**
      * @IsGranted("ROLE_USER")
      * @Route("/{id}/editer_mon_profil", name="user_editer_son_profil", methods={"GET","POST"})
@@ -173,4 +176,52 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    // USER CHEF DE PROJET
+
+    /**
+     * @IsGranted("ROLE_CHEFPROJET")
+     * @Route("/{id}/editer_mon_profil_chefDeProjet", name="user_editer_son_profil_chefDeProjet", methods={"GET","POST"})
+     */
+    public function editProfilChefProjet(Request $request, User $user): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_profile_chefProjet');
+        }
+
+        return $this->render('user/editProfilUser.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    // USER CHEF DE PROJET
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/{id}/editer_mon_profil_admin", name="user_editer_son_profil_admin", methods={"GET","POST"})
+     */
+    public function editProfilAdmin(Request $request, User $user): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_profile_admin');
+        }
+
+        return $this->render('user/editProfilAdmin.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
 }
