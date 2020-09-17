@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @IsGranted("ROLE_USER")
@@ -20,7 +21,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class UserController extends AbstractController
 {
-                                    // PARTIE USER
+                             // PARTIE USER
     
     /**
      * @Route("/profile", name="user_profile")
@@ -72,7 +73,7 @@ class UserController extends AbstractController
      * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, string $photoDir): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -84,6 +85,19 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+                // Test du jeudi 17 sept
+            if ($photo = $form['cv']->getData()){
+                $filename = bin2hex(random_bytes(6)).'.'.$photo->guessExtension();
+                try {
+                    $photo->move($photoDir, $filename);
+                } catch (FileException $e){
+                    // Unable , give up !
+                }
+                $user->setCvFilename($filename);
+                // fin test --> + paramètres foonction
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -167,6 +181,7 @@ class UserController extends AbstractController
     {
         $standardUserForm = $this->createForm(StandardUserType::class, $user);
         $standardUserForm->handleRequest($request);
+        
 
         if ($standardUserForm->isSubmitted() && $standardUserForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();

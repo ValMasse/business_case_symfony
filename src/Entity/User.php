@@ -308,4 +308,21 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $cvFilename;
+
+    public function getCvFilename()
+    {
+        return $this->cvFilename;
+    }
+
+    public function setCvFilename($cvFilename)
+    {
+        $this->cvFilename = $cvFilename;
+
+        return $this;
+    }
 }
