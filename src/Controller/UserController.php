@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\AdminUserType;
+use App\Form\ChefProjetUserType;
+use App\Form\StandardUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -162,10 +165,10 @@ class UserController extends AbstractController
      */
     public function editProfilUser(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        $standardUserForm = $this->createForm(StandardUserType::class, $user);
+        $standardUserForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($standardUserForm->isSubmitted() && $standardUserForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile');
@@ -173,11 +176,11 @@ class UserController extends AbstractController
 
         return $this->render('user/editProfilUser.html.twig', [
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $standardUserForm->createView(),
         ]);
     }
 
-    // USER CHEF DE PROJET
+    // CHEF DE PROJET
 
     /**
      * @IsGranted("ROLE_CHEFPROJET")
@@ -185,10 +188,10 @@ class UserController extends AbstractController
      */
     public function editProfilChefProjet(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        $chefProjetForm = $this->createForm(ChefProjetUserType::class, $user);
+        $chefProjetForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($chefProjetForm->isSubmitted() && $chefProjetForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile_chefProjet');
@@ -196,11 +199,12 @@ class UserController extends AbstractController
 
         return $this->render('user/editProfilUser.html.twig', [
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $chefProjetForm->createView(),
+
         ]);
     }
 
-    // USER CHEF DE PROJET
+    // ADMIN
 
     /**
      * @IsGranted("ROLE_ADMIN")
@@ -208,10 +212,10 @@ class UserController extends AbstractController
      */
     public function editProfilAdmin(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
+        $adminUserForm = $this->createForm(AdminUserType::class, $user);
+        $adminUserForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($adminUserForm->isSubmitted() && $adminUserForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile_admin');
@@ -219,7 +223,7 @@ class UserController extends AbstractController
 
         return $this->render('user/editProfilAdmin.html.twig', [
             'user' => $user,
-            'form' => $form->createView(),
+            'form' => $adminUserForm->createView(),
         ]);
     }
 
