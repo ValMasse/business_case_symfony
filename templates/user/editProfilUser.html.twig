@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User Personnal Profile{% endblock %}
+
+{% block body %}
+    <h1>Modification de mes informations personnelles</h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('user_profile') }}">retour à mon profil</a>
+    </button>
+
+{% endblock %}

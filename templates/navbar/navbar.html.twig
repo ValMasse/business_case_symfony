@@ -54,7 +54,7 @@
 			{# ...  Menu déroulant - standard User  #}
 			{% if (is_granted('ROLE_USER') and (app.user)) %}
 				<li class="nav-item dropdown">
-        			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
+        			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plus</a>
         			<div class="dropdown-menu">
           			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
           			<a class="dropdown-item" href="{{ path('domaine_index') }}">Contact</a>

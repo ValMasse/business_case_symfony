@@ -151,4 +151,26 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+
+    // EDITION POUR CHAQUE UTILISATEUR DE SON PROFIL PERSONNEL
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/{id}/editer_mon_profil", name="user_editer_son_profil", methods={"GET","POST"})
+     */
+    public function editProfilUser(Request $request, User $user): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_profile');
+        }
+
+        return $this->render('user/editProfilUser.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
 }
