@@ -10,7 +10,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\File;
 
 class UserType extends AbstractType
@@ -37,14 +36,7 @@ class UserType extends AbstractType
             ->add('numeroPE')
             ->add('commentaire')
             ->add('infosCos')
-            ->add('cv', FileType::class, [
-                'required' => false,
-                'mapped' => false,
-                'constraints' => [
-                    new File(['maxSize' => '1024k'])
-                ],
-            ])
-            ->add('submit', SubmitType::class)
+            ->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
         ;
     }
 

@@ -80,7 +80,7 @@ class User implements UserInterface
     private $commentaire;
 
     /**
-     * @ORM\Column(type="string", length=1024, nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $cv;
 
@@ -297,32 +297,17 @@ class User implements UserInterface
     return (string) $this->getFirstname(). " " .$this->getLastname();
     }
 
-    public function getCv(): ?string
+    public function getCv()
     {
         return $this->cv;
     }
 
-    public function setCv(?string $cv): self
+    public function setCv( $cv)
     {
         $this->cv = $cv;
 
         return $this;
     }
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $cvFilename;
-
-    public function getCvFilename()
-    {
-        return $this->cvFilename;
-    }
-
-    public function setCvFilename($cvFilename)
-    {
-        $this->cvFilename = $cvFilename;
-
-        return $this;
-    }
+    
 }
