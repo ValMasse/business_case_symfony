@@ -37,6 +37,7 @@ class UserType extends AbstractType
             ->add('commentaire')
             ->add('infosCos')
             ->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
+            ->add('cv', FileType::class, array('data_class' => null,'required' => false))
         ;
     }
 
