@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block title %}Business Case 2020{% endblock %}
 
+
 {% block body %}
+<link href="style/home.css" rel="stylesheet" >
 {% if app.user %}
 <h1>Bonjour,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;{{ app.user.firstname }} {{ app.user.lastname }}</h1>
