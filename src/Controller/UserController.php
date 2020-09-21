@@ -247,6 +247,20 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    // ADMIN
+
+    /**
+     * @Route("/{id}/resultats", name="user_results", methods={"GET"})
+     */
+    public function getResults(User $user): Response
+    {
+        return $this->render('user/resultats.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+
     
 
 

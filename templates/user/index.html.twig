@@ -17,6 +17,7 @@
                 <th>Numero Pole-Emploi</th>
                 <th>Commentaires</th>
                 <th>actions</th>
+                <th>Résultats</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,11 @@
                     </button>
                     <button type="button" class="btn btn-info">
                     <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning">
+                    <a href="{{ path('user_results', {'id': user.id}) }}">Accéder aux Résultats</a>
                     </button>
                 </td>
             </tr>
