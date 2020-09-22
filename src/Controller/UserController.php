@@ -260,6 +260,16 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{id}/cv", name="user_cv", methods={"GET"})
+     */
+    public function getUserCV(User $user): Response
+    {
+        return $this->render('user/cv.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
 
     
 

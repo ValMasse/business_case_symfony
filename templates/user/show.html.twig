@@ -38,7 +38,9 @@
             </tr>
             <tr>
                 <th>CV</th>
-                <td><a>{{ user.cv }}</a></td>
+                <button type="button" class="btn btn-info">
+                <td><a href="{{ path('user_cv', {'id': user.id}) }}">Voir le CV</a></td>
+                </button>
             </tr>
         </tbody>
     </table>
