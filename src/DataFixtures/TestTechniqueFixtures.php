@@ -7,6 +7,7 @@ use App\Repository\AdministrateurRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -19,9 +20,13 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        for($i = 0; $i < 10; $i++){        
+        $faker = Factory::create('fr_FR');
+
+        for($i = 1; $i < 11; $i++){        
         $testTechnique = new TestTechnique();
         $testTechnique->setAdministrateur($this->administrateurRepository->find(random_int(1, 2)));
+        $testTechnique->setDate($faker->dateTimeBetween("- 1 year", "now"));
+        $testTechnique->setIntitule("Test Technique N° $i");
         $manager->persist($testTechnique);
         }
         $manager->flush();

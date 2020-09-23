@@ -9,6 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Intitulé du Test Technique</th>
+                <th>Date</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +18,8 @@
         {% for test_technique in test_techniques %}
             <tr>
                 <td>{{ test_technique.id }}</td>
+                <td>{{ test_technique.intitule }}</td>
+                <td>{{ test_technique.date|date("m/d/Y") }}</td>
                 <td>
                     <button type="button" class="btn btn-secondary">
                     <a href="{{ path('test_technique_show', {'id': test_technique.id}) }}">Détails</a>

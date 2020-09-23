@@ -3,20 +3,28 @@
 {% block title %}TestTechnique{% endblock %}
 
 {% block body %}
-    <h1>TestTechnique</h1>
+    <h1>Test Technique N° {{ test_technique.id }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ test_technique.id }}</td>
+                <th>Intitulé</th>
+                <td>{{ test_technique.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ test_technique.date|date("m/d/Y") }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('test_technique_index') }}">back to list</a>
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('test_technique_index') }}">Retour à la liste</a>
+    </button>
 
-    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">edit</a>
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Modifier</a>
+    </button>
 
     {{ include('test_technique/_delete_form.html.twig') }}
 {% endblock %}

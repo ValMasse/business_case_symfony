@@ -34,6 +34,17 @@ class TestTechnique
      */
     private $administrateur;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $intitule;
+
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -118,6 +129,32 @@ class TestTechnique
 
     public function __toString()
     {
-    return (string) $this->getId();
+    return (string) $this->getIntitule();
     }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIntitule(): ?string
+    {
+        return $this->intitule;
+    }
+
+    public function setIntitule(?string $intitule): self
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    
 }

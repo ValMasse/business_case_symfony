@@ -22,7 +22,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         for($i = 0; $i < 60; $i++){        
         $reponsePossible = new ReponsePossible();
         $reponsePossible->setCode($i);
-        $reponsePossible->setIntitule("réponse possible N°" + $i);
+        $reponsePossible->setIntitule("réponse possible N° $i");
         $reponsePossible->setEstJuste((bool)random_int(0, 1));
         $reponsePossible->setEstActif(false);
         $reponsePossible->setQuestion($this->questionRepository->find(random_int(1, 10)));
