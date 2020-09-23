@@ -20,11 +20,6 @@ class TestTechnique
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Question::class, mappedBy="testsTechniques")
-     */
-    private $questions;
-
-    /**
      * @ORM\OneToMany(targetEntity=InfoCo::class, mappedBy="testTechnique")
      */
     private $infoCos;
@@ -44,11 +39,16 @@ class TestTechnique
      */
     private $intitule;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="testTechnique")
+     */
+    private $questions;
+
 
     public function __construct()
     {
-        $this->questions = new ArrayCollection();
         $this->infoCos = new ArrayCollection();
+        $this->questions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,33 +56,6 @@ class TestTechnique
         return $this->id;
     }
 
-    /**
-     * @return Collection|Question[]
-     */
-    public function getQuestions(): Collection
-    {
-        return $this->questions;
-    }
-
-    public function addQuestion(Question $question): self
-    {
-        if (!$this->questions->contains($question)) {
-            $this->questions[] = $question;
-            $question->addTestsTechnique($this);
-        }
-
-        return $this;
-    }
-
-    public function removeQuestion(Question $question): self
-    {
-        if ($this->questions->contains($question)) {
-            $this->questions->removeElement($question);
-            $question->removeTestsTechnique($this);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|InfoCo[]
@@ -152,6 +125,37 @@ class TestTechnique
     public function setIntitule(?string $intitule): self
     {
         $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Question[]
+     */
+    public function getQuestions(): Collection
+    {
+        return $this->questions;
+    }
+
+    public function addQuestion(Question $question): self
+    {
+        if (!$this->questions->contains($question)) {
+            $this->questions[] = $question;
+            $question->setTestTechnique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestion(Question $question): self
+    {
+        if ($this->questions->contains($question)) {
+            $this->questions->removeElement($question);
+            // set the owning side to null (unless already changed)
+            if ($question->getTestTechnique() === $this) {
+                $question->setTestTechnique(null);
+            }
+        }
 
         return $this;
     }

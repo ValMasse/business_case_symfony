@@ -34,7 +34,7 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
         $testTechnique->setDate($faker->dateTimeBetween("- 1 year", "now"));
         $testTechnique->setIntitule("Test Technique N° $i");
         // MANQUE LISTE DE QUESTIONS DONC DOMAINES ETC ...
-        $testTechnique->
+        $testTechnique->addQuestion($questions[array_rand($questions)]);
         $manager->persist($testTechnique);
         }
         $manager->flush();
@@ -44,6 +44,7 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             AdministrateurFixtures::class,
+            QuestionFixtures::class
         ];
     }
 }

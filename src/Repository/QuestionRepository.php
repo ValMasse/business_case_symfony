@@ -23,18 +23,15 @@ class QuestionRepository extends ServiceEntityRepository
     //  * @return Question[] Returns an array of Question objects
     //  */
     /*
-    public function findByExampleField($value)
+    public function findQuestionsForEachTest()
     {
         return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('q.test_technique_id = test_technique.id')
             ->orderBy('q.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
-    }
-    */
+    }*/
 
     /*
     public function findOneBySomeField($value): ?Question

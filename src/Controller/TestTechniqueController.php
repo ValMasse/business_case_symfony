@@ -61,6 +61,7 @@ class TestTechniqueController extends AbstractController
         return $this->render('test_technique/show.html.twig', [
             'test_technique' => $testTechnique,
             'questions' => $questionRepository->findAll(),
+            //'questionsComps' => $questionRepository->findQuestionsForEachTest(),
         ]);
     }
 
@@ -68,7 +69,7 @@ class TestTechniqueController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="test_technique_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, TestTechnique $testTechnique): Response
+    public function edit(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
     {
         $form = $this->createForm(TestTechniqueType::class, $testTechnique);
         $form->handleRequest($request);
@@ -82,6 +83,7 @@ class TestTechniqueController extends AbstractController
         return $this->render('test_technique/edit.html.twig', [
             'test_technique' => $testTechnique,
             'form' => $form->createView(),
+            'questions' => $questionRepository->findAll(),
         ]);
     }
 

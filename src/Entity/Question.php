@@ -56,20 +56,20 @@ class Question
      */
     private $reponsesPossibles;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=TestTechnique::class, inversedBy="questions")
-     */
-    private $testsTechniques;
 
     /**
      * @ORM\ManyToMany(targetEntity=Administrateur::class, mappedBy="questions")
      */
     private $administrateurs;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TestTechnique::class, inversedBy="questions")
+     */
+    private $testTechnique;
+
     public function __construct()
     {
         $this->reponsesPossibles = new ArrayCollection();
-        $this->testsTechniques = new ArrayCollection();
         $this->administrateurs = new ArrayCollection();
     }
 
@@ -180,32 +180,7 @@ class Question
 
         return $this;
     }
-
-    /**
-     * @return Collection|TestTechnique[]
-     */
-    public function getTestsTechniques(): Collection
-    {
-        return $this->testsTechniques;
-    }
-
-    public function addTestsTechnique(TestTechnique $testsTechnique): self
-    {
-        if (!$this->testsTechniques->contains($testsTechnique)) {
-            $this->testsTechniques[] = $testsTechnique;
-        }
-
-        return $this;
-    }
-
-    public function removeTestsTechnique(TestTechnique $testsTechnique): self
-    {
-        if ($this->testsTechniques->contains($testsTechnique)) {
-            $this->testsTechniques->removeElement($testsTechnique);
-        }
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection|Administrateur[]
@@ -238,5 +213,17 @@ class Question
     public function __toString()
     {
     return (string) $this->getId(). " - " .$this->getEnonce();
+    }
+
+    public function getTestTechnique(): ?TestTechnique
+    {
+        return $this->testTechnique;
+    }
+
+    public function setTestTechnique(?TestTechnique $testTechnique): self
+    {
+        $this->testTechnique = $testTechnique;
+
+        return $this;
     }
 }

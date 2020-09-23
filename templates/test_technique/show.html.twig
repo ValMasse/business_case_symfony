@@ -17,7 +17,7 @@
             </tr>
         </tbody>
     </table>
-    <h4>Voici la liste des questions composant ce Test Technique:</h4>
+    <h5>Voici la liste des questions composant ce Test Technique:</h5>
 
     <table class="table table-striped">
         <thead>
@@ -28,26 +28,14 @@
         </thead>
         <tbody>
         {% for question in questions %}
-            {% if question.testsTechniques %}
             <tr>
                 <td>{{ question.id }}</td>
                 <td>{{ question.enonce }}</td>            
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">Ce Test ne contient encore aucune Question</td>
-            </tr>
-            {% endif %}
         {% endfor %}
         </tbody>
     </table>
 
-    <h4>Liste des Questions disponibles </h4>
-    {% for question in questions %}
-
-    {{ question.id }}
-
-    {% endfor %}
     <br><br>
 
     <button type="button" class="btn btn-info">
