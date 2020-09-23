@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TestTechnique;
 use App\Form\TestTechniqueType;
+use App\Repository\QuestionRepository;
 use App\Repository\TestTechniqueRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,15 +51,16 @@ class TestTechniqueController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+            // Fonction pour afficher la liste des questions dispo pour les tests techniques
     /**
      * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="test_technique_show", methods={"GET"})
      */
-    public function show(TestTechnique $testTechnique): Response
+    public function show(TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
     {
         return $this->render('test_technique/show.html.twig', [
             'test_technique' => $testTechnique,
+            'questions' => $questionRepository->findAll(),
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\TestTechnique;
 use App\Repository\AdministrateurRepository;
+use App\Repository\QuestionRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -13,13 +14,18 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
 {
 
     private $administrateurRepository;
+    private $questionRepository;
 
-    public function __construct(AdministrateurRepository $administrateurRepository) {
+    public function __construct(AdministrateurRepository $administrateurRepository,
+                                QuestionRepository $questionRepository) {
         $this->administrateurRepository = $administrateurRepository;
+        $this->questionRepository = $questionRepository;
     }
 
     public function load(ObjectManager $manager)
     {
+        $questions = $this->questionRepository->findAll();
+
         $faker = Factory::create('fr_FR');
 
         for($i = 1; $i < 11; $i++){        
@@ -28,6 +34,7 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
         $testTechnique->setDate($faker->dateTimeBetween("- 1 year", "now"));
         $testTechnique->setIntitule("Test Technique N° $i");
         // MANQUE LISTE DE QUESTIONS DONC DOMAINES ETC ...
+        $testTechnique->
         $manager->persist($testTechnique);
         }
         $manager->flush();
