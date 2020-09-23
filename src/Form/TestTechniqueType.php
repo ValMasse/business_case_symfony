@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TestTechnique;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +14,7 @@ class TestTechniqueType extends AbstractType
     {
         $builder
             ->add('questions')
+            ->add('Ajouter', SubmitType::class)
             ->add('administrateur')
         ;
     }
