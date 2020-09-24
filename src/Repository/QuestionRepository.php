@@ -25,11 +25,14 @@ class QuestionRepository extends ServiceEntityRepository
     /*
     public function findQuestionsForEachTest()
     {
+        
         return $this->createQueryBuilder('q')
-            ->andWhere('q.test_technique_id = test_technique.id')
+            ->join('TestTechniqueRepository','TT')
+            ->andWhere('q.testTechnique = TT.id')
             ->orderBy('q.id', 'ASC')
             ->getQuery()
-            ->getResult()
+            ->getResult();
+            
         ;
     }*/
 
