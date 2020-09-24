@@ -27,11 +27,12 @@ class QuestionRepository extends ServiceEntityRepository
     {
         
         return $this->createQueryBuilder('q')
-            ->join('TestTechniqueRepository','TT')
-            ->andWhere('q.testTechnique = TT.id')
+            ->join(TestTechniqueRepository::class,'TT')
+            ->andWhere('q.test_technique_id = TT.id')
             ->orderBy('q.id', 'ASC')
             ->getQuery()
             ->getResult();
+            
             
         ;
     }*/

@@ -18,4 +18,14 @@ class AppController extends AbstractController
             'controller_name' => 'AppController',
         ]);
     }
+
+    /**
+     * @Route("/not_found", name="not-found")
+     */
+    public function notFound()
+    {
+        return $this->render('app/not_found.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
 }
