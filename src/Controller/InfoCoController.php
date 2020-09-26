@@ -51,7 +51,6 @@ class InfoCoController extends AbstractController
     }
 
     /**
-     * @IsGranted("ROLE_CHEFPROJET")
      * @Route("/{id}", name="info_co_show", methods={"GET"})
      */
     public function show(InfoCo $infoCo): Response
