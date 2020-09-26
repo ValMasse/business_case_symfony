@@ -27,20 +27,8 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.dateDeNaissance, {
-            label: 'Date de Naissance : '
-        }) }}
-        {{ form_row(registrationForm.telephone, {
-            label: 'Numéro de Téléphone'
-        }) }}
-        {{ form_row(registrationForm.numeroPE, {
-            label: 'Identifiant Pôle-Emploi : '
-        }) }}
-        {{ form_row(registrationForm.commentaire, {
-            label: 'Commentaires : '
-        }) }}
         <br>
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.accepterLesConditions) }}
         <br>
         <div class="boutonJaune" style="text-align:center">
         <button type="submit" class="btn btn-warning">Créer mon compte</button>

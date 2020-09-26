@@ -4,10 +4,8 @@
 
 {% block body %}
     <h1>{{ user.firstname }} {{ user.lastname }}</h1>
-
-    <table class="table">
-        <tbody>
-            <br>
+    <table class="table table-striped">
+        </tbody>
             <tr>
                 <th>Firstname</th>
                 <td>{{ user.firstname }}</td>
@@ -39,7 +37,7 @@
             <tr>
                 <th>CV</th>
                 <button type="button" class="btn btn-info">
-                <td><a href="{{ path('user_cv', {'id': user.id}) }}">Voir le CV</a></td>
+                <td><a target="_blank" href="{{ path('user_cv', {'id': user.id}) }}">Voir le CV</a></td>
                 </button>
             </tr>
         </tbody>

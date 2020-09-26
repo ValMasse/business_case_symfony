@@ -8,7 +8,7 @@
     {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <button type="button" class="btn btn-info">
-    <a href="{{ path('user_index') }}">retour à la liste</a>
+    <a href="{{ path('user_show', {'id': user.id}) }}">retour au profil Utilisateur</a>
     </button>
 
     {{ include('user/_delete_form.html.twig') }}

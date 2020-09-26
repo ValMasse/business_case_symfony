@@ -20,11 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('email')
-            ->add('dateDeNaissance')
-            ->add('telephone')
-            ->add('numeroPE')
-            ->add('commentaire')
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('accepterLesConditions', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
