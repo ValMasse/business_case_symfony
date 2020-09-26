@@ -84,15 +84,21 @@
         			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plus</a>
         			<div class="dropdown-menu">
           			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
-          			<a class="dropdown-item" href="{{ path('domaine_index') }}">Contact</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="{{ path('domaine_index') }}">Passer le Test</a>
           			<div class="dropdown-divider"></div>
           			<a class="dropdown-item" href="{{ path('info_co_index') }}">Voir les Résultats</a>
-        			</div> {# ...  A FINIR  #}
+        			</div> 
      			</li>
 			{% endif %}
 
+								{# ...  Contact  #}	
+
+			{% if (is_granted('ROLE_USER') or (not app.user)) %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('contact') }}">Contact</a>
+				</li>
+			{% endif %}
 
 								{# ...  Déconnexion  #}	
 
