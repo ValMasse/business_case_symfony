@@ -12,13 +12,12 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position')
             ->add('enonce')
             ->add('estEliminatoire')
             ->add('estActif')
             ->add('domaine')
             ->add('niveau')
-            ->add('testsTechniques')
+            ->add('testTechnique')
             ->add('administrateurs')
         ;
     }

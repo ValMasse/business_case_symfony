@@ -28,7 +28,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {       
         $question1 = new Question();
-        $question1->setPosition(1);
         $question1->setEnonce("Symfony est framework comportant quel langage?");
         $question1->setEstEliminatoire((bool)random_int(0, 1));
         $question1->setEstActif(false);
@@ -38,7 +37,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question1);        
 
         $question2 = new Question();
-        $question2->setPosition(2);
         $question2->setEnonce("Que signifie le sigle SQL?");
         $question2->setEstEliminatoire(false);
         $question2->setEstActif(false);
@@ -48,7 +46,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question2); 
 
         $question3 = new Question();
-        $question3->setPosition(3);
         $question3->setEnonce("Quelles sont les dispositions des touches pour un clavier français?");
         $question3->setEstEliminatoire(true);
         $question3->setEstActif(false);
@@ -58,7 +55,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question3); 
 
         $question4 = new Question();
-        $question4->setPosition(4);
         $question4->setEnonce("Que signifie Cascade Style Sheet?");
         $question4->setEstEliminatoire(true);
         $question4->setEstActif(false);
@@ -68,7 +64,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question4); 
 
         $question5 = new Question();
-        $question5->setPosition(5);
         $question5->setEnonce("Que signifie les lettres WAMP?");
         $question5->setEstEliminatoire(false);
         $question5->setEstActif(false);
@@ -78,7 +73,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question5); 
 
         $question6 = new Question();
-        $question6->setPosition(6);
         $question6->setEnonce("Qu'est ce que la classe Scanner en Java?");
         $question6->setEstEliminatoire(false);
         $question6->setEstActif(false);
@@ -88,7 +82,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question6); 
 
         $question7 = new Question();
-        $question7->setPosition(7);
         $question7->setEnonce("Quel est le nom du serveur embarqué de l'IDE Eclipse?");
         $question7->setEstEliminatoire(false);
         $question7->setEstActif(false);
@@ -98,7 +91,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question7); 
 
         $question8 = new Question();
-        $question8->setPosition(8);
         $question8->setEnonce("Qui est le créateur du langage JAVA?");
         $question8->setEstEliminatoire(false);
         $question8->setEstActif(false);
@@ -108,7 +100,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question8);
 
         $question9 = new Question();
-        $question9->setPosition(9);
         $question9->setEnonce("Qu'est ce que Moodle?");
         $question9->setEstEliminatoire(false);
         $question9->setEstActif(false);
@@ -118,7 +109,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question9);
 
         $question10 = new Question();
-        $question10->setPosition(10);
         $question10->setEnonce("Qu'apelle t-on Wordpress?");
         $question10->setEstEliminatoire(false);
         $question10->setEstActif(false);
@@ -128,7 +118,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question10);
 
         $question11 = new Question();
-        $question11->setPosition(11);
         $question11->setEnonce("Sur internet, que signifie www?");
         $question11->setEstEliminatoire(false);
         $question11->setEstActif(false);
@@ -138,7 +127,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question11); 
 
         $question12 = new Question();
-        $question12->setPosition(12);
         $question12->setEnonce("Sur internet, que signifie HTTP?");
         $question12->setEstEliminatoire(true);
         $question12->setEstActif(false);
@@ -148,7 +136,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question12); 
 
         $question13 = new Question();
-        $question13->setPosition(13);
         $question13->setEnonce("Les langages Java et Javascript sont des choses identiques?");
         $question13->setEstEliminatoire(false);
         $question13->setEstActif(false);
@@ -158,7 +145,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question13); 
 
         $question14 = new Question();
-        $question14->setPosition(14);
         $question14->setEnonce("Quelle est la différence entre les méthodes GET et POST?");
         $question14->setEstEliminatoire(false);
         $question14->setEstActif(false);
@@ -168,7 +154,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question14); 
 
         $question15 = new Question();
-        $question15->setPosition(15);
         $question15->setEnonce("Que signifie HTML?");
         $question15->setEstEliminatoire(false);
         $question15->setEstActif(false);
@@ -178,7 +163,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question15); 
 
         $question16 = new Question();
-        $question16->setPosition(16);
         $question16->setEnonce("Angular est un framework qui concerne quel langage?");
         $question16->setEstEliminatoire(false);
         $question16->setEstActif(false);
@@ -188,7 +172,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question16); 
 
         $question17 = new Question();
-        $question17->setPosition(17);
         $question17->setEnonce("Lequel de ces langages est le plus ancien, PHP ou bien JAVA?");
         $question17->setEstEliminatoire(false);
         $question17->setEstActif(false);
@@ -198,7 +181,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question17);
 
         $question18 = new Question();
-        $question18->setPosition(18);
         $question18->setEnonce("Le W3C est une entreprise ou un organisme?");
         $question18->setEstEliminatoire(false);
         $question18->setEstActif(false);
@@ -208,7 +190,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question18);
 
         $question19 = new Question();
-        $question19->setPosition(19);
         $question19->setEnonce("Opera est langage de programmation, ou bien un navigateur?");
         $question19->setEstEliminatoire(false);
         $question19->setEstActif(false);
@@ -218,7 +199,6 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question19);
 
         $question20 = new Question();
-        $question20->setPosition(20);
         $question20->setEnonce("Electron est un langage orienté Objet?");
         $question20->setEstEliminatoire(false);
         $question20->setEstActif(false);

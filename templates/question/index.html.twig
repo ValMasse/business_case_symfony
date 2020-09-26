@@ -5,11 +5,10 @@
 {% block body %}
     <h1>Question index</h1><br>
 
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead >
             <tr>
                 <th>Id</th>
-                <th>Position</th>
                 <th>Enoncé</th>
                 <th>Est Eliminatoire</th>
                 <th>Est Actif</th>
@@ -20,7 +19,6 @@
         {% for question in questions %}
             <tr>
                 <td>{{ question.id }}</td>
-                <td>{{ question.position }}</td>
                 <td>{{ question.enonce }}</td>
                 <td>{{ question.estEliminatoire ? 'Oui' : 'Non' }}</td>
                 <td>{{ question.estActif ? 'Oui' : 'Non' }}</td>

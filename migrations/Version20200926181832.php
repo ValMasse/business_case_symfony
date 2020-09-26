@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200926083220 extends AbstractMigration
+final class Version20200926181832 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -28,7 +28,7 @@ final class Version20200926083220 extends AbstractMigration
         $this->addSql('CREATE TABLE formation (id INT AUTO_INCREMENT NOT NULL, intitule VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE info_co (id INT AUTO_INCREMENT NOT NULL, session_id INT NOT NULL, adresse_id INT NOT NULL, test_technique_id INT NOT NULL, date DATETIME NOT NULL, INDEX IDX_30B6F0FA613FECDF (session_id), INDEX IDX_30B6F0FA4DE7DC5C (adresse_id), INDEX IDX_30B6F0FA330C2B16 (test_technique_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE niveau (id INT AUTO_INCREMENT NOT NULL, intitule VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE question (id INT AUTO_INCREMENT NOT NULL, domaine_id INT NOT NULL, niveau_id INT NOT NULL, test_technique_id INT DEFAULT NULL, position INT NOT NULL, enonce VARCHAR(255) NOT NULL, est_eliminatoire TINYINT(1) NOT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_B6F7494E4272FC9F (domaine_id), INDEX IDX_B6F7494EB3E9C81 (niveau_id), INDEX IDX_B6F7494E330C2B16 (test_technique_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE question (id INT AUTO_INCREMENT NOT NULL, domaine_id INT NOT NULL, niveau_id INT NOT NULL, test_technique_id INT DEFAULT NULL, enonce VARCHAR(255) NOT NULL, est_eliminatoire TINYINT(1) NOT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_B6F7494E4272FC9F (domaine_id), INDEX IDX_B6F7494EB3E9C81 (niveau_id), INDEX IDX_B6F7494E330C2B16 (test_technique_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reponse_possible (id INT AUTO_INCREMENT NOT NULL, question_id INT NOT NULL, code VARCHAR(20) NOT NULL, intitule VARCHAR(255) NOT NULL, est_juste TINYINT(1) NOT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_21290E491E27F6BF (question_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE session (id INT AUTO_INCREMENT NOT NULL, ville_session_id INT NOT NULL, formation_id INT NOT NULL, chef_projet_id INT DEFAULT NULL, numero INT NOT NULL, INDEX IDX_D044D5D4BF6308D6 (ville_session_id), INDEX IDX_D044D5D45200282E (formation_id), INDEX IDX_D044D5D4D3B0D67C (chef_projet_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE test_technique (id INT AUTO_INCREMENT NOT NULL, administrateur_id INT DEFAULT NULL, date DATETIME DEFAULT NULL, intitule VARCHAR(255) DEFAULT NULL, INDEX IDX_55A60F8B7EE5403C (administrateur_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
