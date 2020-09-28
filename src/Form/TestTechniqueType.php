@@ -13,8 +13,9 @@ class TestTechniqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('intitule')
             ->add('questions')
-            ->add('Ajouter', SubmitType::class)
+            ->add('AjouterLaQuestion', SubmitType::class)
             ->add('administrateur')
         ;
     }

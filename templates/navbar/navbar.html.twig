@@ -87,7 +87,7 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="{{ path('domaine_index') }}">Passer le Test</a>
           			<div class="dropdown-divider"></div>
-          			<a class="dropdown-item" href="{{ path('info_co_index') }}">Voir les Résultats</a>
+          			<a class="dropdown-item" href="{{ path('user_results', {'id': app.user.id}) }}">Voir les Résultats</a>
         			</div> 
      			</li>
 			{% endif %}
