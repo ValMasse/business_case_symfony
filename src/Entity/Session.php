@@ -20,11 +20,6 @@ class Session
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $numero;
-
-    /**
      * @ORM\ManyToOne(targetEntity=VilleSession::class, inversedBy="sessions")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -46,6 +41,11 @@ class Session
      */
     private $chefProjet;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date;
+
     public function __construct()
     {
         $this->infoCos = new ArrayCollection();
@@ -54,18 +54,6 @@ class Session
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNumero(): ?int
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(int $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
     }
 
     public function getVilleSession(): ?VilleSession
@@ -137,6 +125,18 @@ class Session
 
     public function __toString()
     {
-    return (string) $this->getNumero();
+    return (string) $this->getId(). " " .$this->getFormation(). " " .$this->getVilleSession();
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
     }
 }

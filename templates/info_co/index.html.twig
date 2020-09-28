@@ -11,7 +11,8 @@
                 <th>Id</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th>Numéro de Session</th>
+                <th>Formation</th>
+                <th>Numéro de la session</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,7 +22,8 @@
                 <td>{{ info_co.id }}</td>
                 <td>{{ info_co.date ? info_co.date|date('d-m-Y') : '' }}</td>
                 <td>{{ info_co.adresse }}</td>
-                <td>{{ info_co.session }}</td>
+                <td>{{ info_co.session.formation }}</td>
+                <td>{{ info_co.session.id }}</td>
                 <td>
                     <button type="button" class="btn btn-secondary">
                     <a href="{{ path('info_co_show', {'id': info_co.id}) }}">Détails</a>

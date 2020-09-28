@@ -3,21 +3,21 @@
 {% block title %}Session{% endblock %}
 
 {% block body %}
-    <h1>Session</h1>
+    <h1>Session N° {{ session.id }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ session.id }}</td>
+                <th>NuLieuméro</th>
+                <td>{{ session.villeSession }}</td>
             </tr>
             <tr>
-                <th>Numéro</th>
-                <td>{{ session.numero }}</td>
+                <th>Formation concernée</th>
+                <td>{{ session.formation }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ session.date }}</td>
+                <th>Date de début</th>
+                <td>{{ session.date ? session.date|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>

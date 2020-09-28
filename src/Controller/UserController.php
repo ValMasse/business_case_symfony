@@ -86,7 +86,8 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            $file = $user->getCv();
+                // Concerne l'upload de fichiers.
+            /*$file = $user->getCv();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
 
             $file->move(
@@ -94,7 +95,7 @@ class UserController extends AbstractController
                 $fileName
             );
 
-            $user->setCv($fileName);
+            $user->setCv($fileName);*/
 
             $entityManager->persist($user);
             $entityManager->flush();

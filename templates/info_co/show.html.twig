@@ -3,7 +3,7 @@
 {% block title %}InfoCo{% endblock %}
 
 {% block body %}
-    <h1>Réunion d'Information N° {{ info_co.id }}</h1>
+    <h1>Réunion d'Information du {{ info_co.date ? info_co.date|date('d-m-Y') : '' }}</h1>
 
     <table class="table">
         <tbody>
@@ -11,13 +11,15 @@
                 <th>Id</th>
                 <th>Date</th>
                 <th>Lieu</th>
+                <th>Formation concernée</th>
                 <th>Numéro de la Session</th>
             </tr>
             <tr>
                 <td>{{ info_co.id }}</td>
                 <td>{{ info_co.date ? info_co.date|date('d-m-Y') : '' }}</td>
                 <td>{{ info_co.adresse }}</td>
-                <td>{{ info_co.session }}</td>
+                <td>{{ info_co.session.formation }}</td>
+                <td>{{ info_co.session.id }}</td>
             </tr>
         </tbody>
     </table>

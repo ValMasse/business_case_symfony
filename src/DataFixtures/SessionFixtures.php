@@ -9,6 +9,7 @@ use App\Repository\VilleSessionRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class SessionFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -27,12 +28,14 @@ class SessionFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
+        $faker = Factory::create('fr_FR');
+
         for($i = 0; $i < 10; $i++){        
         $session = new Session();
-        $session->setNumero(random_int(1, 10));
         $session->setVilleSession($this->villeSessionRepository->find((random_int(1, 4))));
         $session->setFormation($this->formationRepository->find((random_int(1, 4))));
         $session->setChefProjet($this->chefProjetRepository->find((random_int(1, 2))));
+        $session->setDate($faker->dateTimeBetween("- 3 year", "now"));
         $manager->persist($session);
         }        
 
