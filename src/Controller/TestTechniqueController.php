@@ -56,13 +56,17 @@ class TestTechniqueController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="test_technique_show", methods={"GET"})
      */
-    public function show(TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
+    public function show(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
     {
+        $id = $request->query->get('id');
+
+        $questions = $questionRepository->findQuestionsForEachTest($id);
+        
         return $this->render('test_technique/show.html.twig', [
             'test_technique' => $testTechnique,
-            'questions' => $questionRepository->findAll(),
-            //'questionsComps' => $questionRepository->findQuestionsForEachTest(),
-        ]);
+            'allQuestions' => $questionRepository->findAll(),
+            'questions' => $questions,
+            ]);
     }
 
     /**

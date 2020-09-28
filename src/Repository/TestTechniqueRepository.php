@@ -26,15 +26,14 @@ class TestTechniqueRepository extends ServiceEntityRepository
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+            ->andWhere('t.id = :question.test_technique_id')
             ->setParameter('val', $value)
             ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
-    }
-    */
+    }*/
+    
 
     /*
     public function findOneBySomeField($value): ?TestTechnique

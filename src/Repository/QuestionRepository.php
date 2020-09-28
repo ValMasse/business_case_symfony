@@ -6,6 +6,7 @@ use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+
 /**
  * @method Question|null find($id, $lockMode = null, $lockVersion = null)
  * @method Question|null findOneBy(array $criteria, array $orderBy = null)
@@ -22,20 +23,18 @@ class QuestionRepository extends ServiceEntityRepository
     // /**
     //  * @return Question[] Returns an array of Question objects
     //  */
-    /*
-    public function findQuestionsForEachTest()
+    
+    public function findQuestionsForEachTest($id)
     {
-        
         return $this->createQueryBuilder('q')
-            ->join(TestTechniqueRepository::class,'TT')
-            ->andWhere('q.test_technique_id = TT.id')
+            ->innerJoin('q.testTechnique', 'testTechnique')
+            ->andWhere('q.testTechnique = :val')
+            ->setParameter('val', $id)
             ->orderBy('q.id', 'ASC')
             ->getQuery()
-            ->getResult();
-            
-            
-        ;
-    }*/
+            ->getResult()
+            ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Question
