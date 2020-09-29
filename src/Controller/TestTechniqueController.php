@@ -105,6 +105,8 @@ class TestTechniqueController extends AbstractController
         return $this->redirectToRoute('test_technique_index');
     }
 
+    
+
 
 
 
