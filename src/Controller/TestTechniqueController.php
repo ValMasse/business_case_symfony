@@ -58,14 +58,13 @@ class TestTechniqueController extends AbstractController
      */
     public function show(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
     {
-        $id = $request->query->get('id');
-
-        $questions = $questionRepository->findQuestionsForEachTest($id);
+       $id = $request->attributes->get('_route_params');
+       $testTechniqueId = $id['id'];
+       //var_dump($testTechniqueId);
         
         return $this->render('test_technique/show.html.twig', [
             'test_technique' => $testTechnique,
-            'allQuestions' => $questionRepository->findAll(),
-            'questions' => $questions,
+            'questions' => $questionRepository->findQuestionsForEachTest($testTechniqueId),
             ]);
     }
 

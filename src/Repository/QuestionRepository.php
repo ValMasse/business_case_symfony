@@ -24,12 +24,12 @@ class QuestionRepository extends ServiceEntityRepository
     //  * @return Question[] Returns an array of Question objects
     //  */
     
-    public function findQuestionsForEachTest($id)
+    public function findQuestionsForEachTest($testId)
     {
         return $this->createQueryBuilder('q')
             ->innerJoin('q.testTechnique', 'testTechnique')
             ->andWhere('q.testTechnique = :val')
-            ->setParameter('val', $id)
+            ->setParameter('val', $testId)
             ->orderBy('q.id', 'ASC')
             ->getQuery()
             ->getResult()
