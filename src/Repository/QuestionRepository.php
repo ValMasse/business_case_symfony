@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 
@@ -20,6 +21,8 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
+    public const PAGINATOR_PER_PAGE = 1;
+
     // /**
     //  * @return Question[] Returns an array of Question objects
     //  */
@@ -34,6 +37,21 @@ class QuestionRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function findQuestionsForEachTestByOne($testTechniqueId, int $offset): Paginator
+    {
+        $query = $this->createQueryBuilder('q')
+            ->innerJoin('q.testTechnique', 'testTechnique')
+            ->andWhere('q.testTechnique = :val')
+            ->setParameter('val', $testTechniqueId)
+            ->orderBy('q.id', 'ASC')
+            ->setMaxResults(self::PAGINATOR_PER_PAGE)
+            ->setFirstResult($offset)
+            ->getQuery()
+            ;
+
+            return new Paginator($query);
     }
 
     /*

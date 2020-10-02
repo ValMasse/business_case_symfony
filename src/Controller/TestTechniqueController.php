@@ -105,6 +105,27 @@ class TestTechniqueController extends AbstractController
         return $this->redirectToRoute('test_technique_index');
     }
 
+    // Fonction to display the test_technique
+    /**
+     * @IsGranted("ROLE_USER")
+     * @Route("/start", name="test_technique_start", methods={"GET", "POST"})
+     */
+    public function startTheTest(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
+    {
+        $id = $request->attributes->get('_route_params');
+        $testTechniqueId = $id['id'];
+
+        $offset = max(0, $request->query->getInt('offset', 0));
+        $paginator = $questionRepository->findQuestionsForEachTestByOne($testTechniqueId, $offset);        
+        
+        return $this->render('test_technique/start_test.html.twig', [
+            'test_technique' => $testTechnique,
+            'questions' => $paginator,
+            'precedent' => $offset - QuestionRepository::PAGINATOR_PER_PAGE,
+            'suivant' => min(count($paginator), $offset + QuestionRepository::PAGINATOR_PER_PAGE),
+            ]);
+    }
+
     
 
 

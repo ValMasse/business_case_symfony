@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TestTechnique{% endblock %}
+
+{% block body %}
+    <h1>Test Technique en cours ...</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Intitulé</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.enonce }}</td>            
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('homepage') }}">Retour à l'accueil</a>
+    </button>
+
+{% endblock %}
