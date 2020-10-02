@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TestTechnique{% endblock %}
+
+{% block body %}
+    <h1>Test Technique en cours ...</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Intitulé</th>
+                <td>{{ test_technique.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ test_technique.date|date("d/m/Y") }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h5>Voici la liste des questions composant ce Test Technique:</h5>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Intitulé</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.enonce }}</td>            
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('test_technique_index') }}">Retour à la liste</a>
+    </button>
+
+    <button type="button" class="btn btn-warning">
+    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Modifier</a>
+    </button>
+
+    {{ include('test_technique/_delete_form.html.twig') }}
+{% endblock %}
