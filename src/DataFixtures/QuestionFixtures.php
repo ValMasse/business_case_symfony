@@ -55,7 +55,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question3); 
 
         $question4 = new Question();
-        $question4->setEnonce("Que signifie Cascade Style Sheet?");
+        $question4->setEnonce("Que signifie CSS?");
         $question4->setEstEliminatoire(true);
         $question4->setEstActif(false);
         $question4->setDomaine($this->domaineRepository->find(1));
@@ -73,7 +73,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question5); 
 
         $question6 = new Question();
-        $question6->setEnonce("Qu'est ce que la classe Scanner en Java?");
+        $question6->setEnonce("Java est il un langage typé?");
         $question6->setEstEliminatoire(false);
         $question6->setEstActif(false);
         $question6->setDomaine($this->domaineRepository->find(2));
@@ -199,7 +199,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question19);
 
         $question20 = new Question();
-        $question20->setEnonce("Electron est un langage orienté Objet?");
+        $question20->setEnonce("Java est un langage orienté Objet?");
         $question20->setEstEliminatoire(false);
         $question20->setEstActif(false);
         $question20->setDomaine($this->domaineRepository->find(2));
