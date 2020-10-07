@@ -25,7 +25,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible1->setIntitule("Java");
         $reponsePossible1->setEstJuste(false);
         $reponsePossible1->setEstActif(false);
-        $reponsePossible1->setQuestion($this->questionRepository->findOneBy(1));
+        $reponsePossible1->setQuestion($this->questionRepository->find(1));
         $manager->persist($reponsePossible1);   
         
         $reponsePossible2 = new ReponsePossible();
@@ -33,7 +33,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible2->setIntitule("C#");
         $reponsePossible2->setEstJuste(false);
         $reponsePossible2->setEstActif(false);
-        $reponsePossible2->setQuestion($this->questionRepository->findOneBy(1));
+        $reponsePossible2->setQuestion($this->questionRepository->find(1));
         $manager->persist($reponsePossible2);
 
         $reponsePossible3 = new ReponsePossible();
@@ -41,7 +41,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible3->setIntitule("PHP");
         $reponsePossible3->setEstJuste(true);
         $reponsePossible3->setEstActif(false);
-        $reponsePossible3->setQuestion($this->questionRepository->findOneBy(1));
+        $reponsePossible3->setQuestion($this->questionRepository->find(1));
         $manager->persist($reponsePossible3);
 
         // CONCERNE LA QUESTION 2
@@ -50,7 +50,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible4->setIntitule("Structured Query Langage");
         $reponsePossible4->setEstJuste(true);
         $reponsePossible4->setEstActif(false);
-        $reponsePossible4->setQuestion($this->questionRepository->findOneBy(2));
+        $reponsePossible4->setQuestion($this->questionRepository->find(2));
         $manager->persist($reponsePossible4);   
         
         $reponsePossible5 = new ReponsePossible();
@@ -58,7 +58,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible5->setIntitule("Structured Queries Lang");
         $reponsePossible5->setEstJuste(false);
         $reponsePossible5->setEstActif(false);
-        $reponsePossible5->setQuestion($this->questionRepository->findOneBy(2));
+        $reponsePossible5->setQuestion($this->questionRepository->find(2));
         $manager->persist($reponsePossible5);
 
         $reponsePossible6 = new ReponsePossible();
@@ -66,7 +66,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible6->setIntitule("Specific Query Langage");
         $reponsePossible6->setEstJuste(false);
         $reponsePossible6->setEstActif(false);
-        $reponsePossible6->setQuestion($this->questionRepository->findOneBy(2));
+        $reponsePossible6->setQuestion($this->questionRepository->find(2));
         $manager->persist($reponsePossible6);
 
         // CONCERNE LA QUESTION 3
@@ -75,7 +75,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible7->setIntitule("AQZSED");
         $reponsePossible7->setEstJuste(false);
         $reponsePossible7->setEstActif(false);
-        $reponsePossible7->setQuestion($this->questionRepository->findOneBy(3));
+        $reponsePossible7->setQuestion($this->questionRepository->find(3));
         $manager->persist($reponsePossible7);   
         
         $reponsePossible8 = new ReponsePossible();
@@ -83,7 +83,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible8->setIntitule("QWERTY");
         $reponsePossible8->setEstJuste(false);
         $reponsePossible8->setEstActif(false);
-        $reponsePossible8->setQuestion($this->questionRepository->findOneBy(3));
+        $reponsePossible8->setQuestion($this->questionRepository->find(3));
         $manager->persist($reponsePossible8);
 
         $reponsePossible9 = new ReponsePossible();
@@ -91,7 +91,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible9->setIntitule("AZERTY");
         $reponsePossible9->setEstJuste(true);
         $reponsePossible9->setEstActif(false);
-        $reponsePossible9->setQuestion($this->questionRepository->findOneBy(3));
+        $reponsePossible9->setQuestion($this->questionRepository->find(3));
         $manager->persist($reponsePossible9);
 
         // CONCERNE LA QUESTION 4
@@ -100,7 +100,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible10->setIntitule("Cascade sheet style");
         $reponsePossible10->setEstJuste(false);
         $reponsePossible10->setEstActif(false);
-        $reponsePossible10->setQuestion($this->questionRepository->findOneBy(4));
+        $reponsePossible10->setQuestion($this->questionRepository->find(4));
         $manager->persist($reponsePossible10);   
         
         $reponsePossible11 = new ReponsePossible();
@@ -108,7 +108,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible11->setIntitule("Cascade Style Sheet");
         $reponsePossible11->setEstJuste(true);
         $reponsePossible11->setEstActif(false);
-        $reponsePossible11->setQuestion($this->questionRepository->findOneBy(4));
+        $reponsePossible11->setQuestion($this->questionRepository->find(4));
         $manager->persist($reponsePossible11);
 
         $reponsePossible12 = new ReponsePossible();
@@ -116,7 +116,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible12->setIntitule("Custom Style Sheet");
         $reponsePossible12->setEstJuste(false);
         $reponsePossible12->setEstActif(false);
-        $reponsePossible12->setQuestion($this->questionRepository->findOneBy(4));
+        $reponsePossible12->setQuestion($this->questionRepository->find(4));
         $manager->persist($reponsePossible12);
 
         // CONCERNE LA QUESTION 5
@@ -125,7 +125,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible13->setIntitule("Windows Apache MySql Php");
         $reponsePossible13->setEstJuste(true);
         $reponsePossible13->setEstActif(false);
-        $reponsePossible13->setQuestion($this->questionRepository->findOneBy(5));
+        $reponsePossible13->setQuestion($this->questionRepository->find(5));
         $manager->persist($reponsePossible13);   
         
         $reponsePossible14 = new ReponsePossible();
@@ -133,7 +133,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible14->setIntitule("Windows Answer MySql Php");
         $reponsePossible14->setEstJuste(false);
         $reponsePossible14->setEstActif(false);
-        $reponsePossible14->setQuestion($this->questionRepository->findOneBy(5));
+        $reponsePossible14->setQuestion($this->questionRepository->find(5));
         $manager->persist($reponsePossible14);
 
         $reponsePossible15 = new ReponsePossible();
@@ -141,7 +141,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible15->setIntitule("Windows Apache Multimedia Php");
         $reponsePossible15->setEstJuste(false);
         $reponsePossible15->setEstActif(false);
-        $reponsePossible15->setQuestion($this->questionRepository->findOneBy(5));
+        $reponsePossible15->setQuestion($this->questionRepository->find(5));
         $manager->persist($reponsePossible15);
 
         // CONCERNE LA QUESTION 6
@@ -150,7 +150,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible16->setIntitule("Oui");
         $reponsePossible16->setEstJuste(true);
         $reponsePossible16->setEstActif(false);
-        $reponsePossible16->setQuestion($this->questionRepository->findOneBy(6));
+        $reponsePossible16->setQuestion($this->questionRepository->find(6));
         $manager->persist($reponsePossible16);   
         
         $reponsePossible17 = new ReponsePossible();
@@ -158,7 +158,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible17->setIntitule("Non");
         $reponsePossible17->setEstJuste(false);
         $reponsePossible17->setEstActif(false);
-        $reponsePossible17->setQuestion($this->questionRepository->findOneBy(6));
+        $reponsePossible17->setQuestion($this->questionRepository->find(6));
         $manager->persist($reponsePossible17);
 
         // CONCERNE LA QUESTION 7
@@ -167,7 +167,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible18->setIntitule("TomEtJerry");
         $reponsePossible18->setEstJuste(false);
         $reponsePossible18->setEstActif(false);
-        $reponsePossible18->setQuestion($this->questionRepository->findOneBy(7));
+        $reponsePossible18->setQuestion($this->questionRepository->find(7));
         $manager->persist($reponsePossible18);
 
         $reponsePossible19 = new ReponsePossible();
@@ -175,7 +175,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible19->setIntitule("Tom-Tom");
         $reponsePossible19->setEstJuste(false);
         $reponsePossible19->setEstActif(false);
-        $reponsePossible19->setQuestion($this->questionRepository->findOneBy(7));
+        $reponsePossible19->setQuestion($this->questionRepository->find(7));
         $manager->persist($reponsePossible19);
 
         $reponsePossible20 = new ReponsePossible();
@@ -183,7 +183,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible20->setIntitule("Tomcat");
         $reponsePossible20->setEstJuste(true);
         $reponsePossible20->setEstActif(false);
-        $reponsePossible20->setQuestion($this->questionRepository->findOneBy(7));
+        $reponsePossible20->setQuestion($this->questionRepository->find(7));
         $manager->persist($reponsePossible20);
 
         // CONCERNE LA QUESTION 8
@@ -192,7 +192,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible21->setIntitule("Mark Zuckerberg");
         $reponsePossible21->setEstJuste(false);
         $reponsePossible21->setEstActif(false);
-        $reponsePossible21->setQuestion($this->questionRepository->findOneBy(8));
+        $reponsePossible21->setQuestion($this->questionRepository->find(8));
         $manager->persist($reponsePossible21);
 
         $reponsePossible22 = new ReponsePossible();
@@ -200,7 +200,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible22->setIntitule("James Gosling");
         $reponsePossible22->setEstJuste(false);
         $reponsePossible22->setEstActif(false);
-        $reponsePossible22->setQuestion($this->questionRepository->findOneBy(8));
+        $reponsePossible22->setQuestion($this->questionRepository->find(8));
         $manager->persist($reponsePossible22);
 
         $reponsePossible23 = new ReponsePossible();
@@ -208,7 +208,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible23->setIntitule("Steve Jobs");
         $reponsePossible23->setEstJuste(true);
         $reponsePossible23->setEstActif(false);
-        $reponsePossible23->setQuestion($this->questionRepository->findOneBy(8));
+        $reponsePossible23->setQuestion($this->questionRepository->find(8));
         $manager->persist($reponsePossible23);
 
         // CONCERNE LA QUESTION 9
@@ -217,7 +217,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible24->setIntitule("un hébergeur");
         $reponsePossible24->setEstJuste(false);
         $reponsePossible24->setEstActif(false);
-        $reponsePossible24->setQuestion($this->questionRepository->findOneBy(9));
+        $reponsePossible24->setQuestion($this->questionRepository->find(9));
         $manager->persist($reponsePossible24);
 
         $reponsePossible25 = new ReponsePossible();
@@ -225,7 +225,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible25->setIntitule("une boite mail");
         $reponsePossible25->setEstJuste(false);
         $reponsePossible25->setEstActif(false);
-        $reponsePossible25->setQuestion($this->questionRepository->findOneBy(9));
+        $reponsePossible25->setQuestion($this->questionRepository->find(9));
         $manager->persist($reponsePossible25);
 
         $reponsePossible26 = new ReponsePossible();
@@ -233,7 +233,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible26->setIntitule("Une plateforme d'apprentissage en ligne");
         $reponsePossible26->setEstJuste(true);
         $reponsePossible26->setEstActif(false);
-        $reponsePossible26->setQuestion($this->questionRepository->findOneBy(9));
+        $reponsePossible26->setQuestion($this->questionRepository->find(9));
         $manager->persist($reponsePossible26);
 
         // CONCERNE LA QUESTION 10
@@ -242,7 +242,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible27->setIntitule("un système de gestion de contenu");
         $reponsePossible27->setEstJuste(true);
         $reponsePossible27->setEstActif(false);
-        $reponsePossible27->setQuestion($this->questionRepository->findOneBy(10));
+        $reponsePossible27->setQuestion($this->questionRepository->find(10));
         $manager->persist($reponsePossible27);
 
         $reponsePossible28 = new ReponsePossible();
@@ -250,7 +250,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible28->setIntitule("un système de gestion de base de données");
         $reponsePossible28->setEstJuste(false);
         $reponsePossible28->setEstActif(false);
-        $reponsePossible28->setQuestion($this->questionRepository->findOneBy(10));
+        $reponsePossible28->setQuestion($this->questionRepository->find(10));
         $manager->persist($reponsePossible28);
 
         $reponsePossible29 = new ReponsePossible();
@@ -258,7 +258,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible29->setIntitule("un langage de programmation");
         $reponsePossible29->setEstJuste(false);
         $reponsePossible29->setEstActif(false);
-        $reponsePossible29->setQuestion($this->questionRepository->findOneBy(10));
+        $reponsePossible29->setQuestion($this->questionRepository->find(10));
         $manager->persist($reponsePossible29);
 
         // CONCERNE LA QUESTION 11
@@ -267,7 +267,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible30->setIntitule("world web wide");
         $reponsePossible30->setEstJuste(false);
         $reponsePossible30->setEstActif(false);
-        $reponsePossible30->setQuestion($this->questionRepository->findOneBy(11));
+        $reponsePossible30->setQuestion($this->questionRepository->find(11));
         $manager->persist($reponsePossible30);
 
         $reponsePossible31 = new ReponsePossible();
@@ -275,7 +275,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible31->setIntitule("world wide web");
         $reponsePossible31->setEstJuste(true);
         $reponsePossible31->setEstActif(false);
-        $reponsePossible31->setQuestion($this->questionRepository->findOneBy(11));
+        $reponsePossible31->setQuestion($this->questionRepository->find(11));
         $manager->persist($reponsePossible31);
 
         $reponsePossible32 = new ReponsePossible();
@@ -283,7 +283,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible32->setIntitule("wide web world");
         $reponsePossible32->setEstJuste(false);
         $reponsePossible32->setEstActif(false);
-        $reponsePossible32->setQuestion($this->questionRepository->findOneBy(11));
+        $reponsePossible32->setQuestion($this->questionRepository->find(11));
         $manager->persist($reponsePossible32);
 
         // CONCERNE LA QUESTION 12
@@ -292,7 +292,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible33->setIntitule("hyper protocole text processus");
         $reponsePossible33->setEstJuste(false);
         $reponsePossible33->setEstActif(false);
-        $reponsePossible33->setQuestion($this->questionRepository->findOneBy(12));
+        $reponsePossible33->setQuestion($this->questionRepository->find(12));
         $manager->persist($reponsePossible33);
 
         $reponsePossible34 = new ReponsePossible();
@@ -300,7 +300,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible34->setIntitule("hypertext transfer proctocol");
         $reponsePossible34->setEstJuste(true);
         $reponsePossible34->setEstActif(false);
-        $reponsePossible34->setQuestion($this->questionRepository->findOneBy(12));
+        $reponsePossible34->setQuestion($this->questionRepository->find(12));
         $manager->persist($reponsePossible34);
 
         $reponsePossible35 = new ReponsePossible();
@@ -308,7 +308,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible35->setIntitule("hypertext trade processus");
         $reponsePossible35->setEstJuste(false);
         $reponsePossible35->setEstActif(false);
-        $reponsePossible35->setQuestion($this->questionRepository->findOneBy(12));
+        $reponsePossible35->setQuestion($this->questionRepository->find(12));
         $manager->persist($reponsePossible35);
 
         // CONCERNE LA QUESTION 13
@@ -317,7 +317,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible36->setIntitule("oui");
         $reponsePossible36->setEstJuste(false);
         $reponsePossible36->setEstActif(false);
-        $reponsePossible36->setQuestion($this->questionRepository->findOneBy(13));
+        $reponsePossible36->setQuestion($this->questionRepository->find(13));
         $manager->persist($reponsePossible36);
 
         $reponsePossible37 = new ReponsePossible();
@@ -325,7 +325,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible37->setIntitule("non");
         $reponsePossible37->setEstJuste(true);
         $reponsePossible37->setEstActif(false);
-        $reponsePossible37->setQuestion($this->questionRepository->findOneBy(13));
+        $reponsePossible37->setQuestion($this->questionRepository->find(13));
         $manager->persist($reponsePossible37);
 
         // CONCERNE LA QUESTION 14        
@@ -334,7 +334,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible38->setIntitule("elles sont identiques");
         $reponsePossible38->setEstJuste(false);
         $reponsePossible38->setEstActif(false);
-        $reponsePossible38->setQuestion($this->questionRepository->findOneBy(14));
+        $reponsePossible38->setQuestion($this->questionRepository->find(14));
         $manager->persist($reponsePossible38);
 
         $reponsePossible39 = new ReponsePossible();
@@ -342,7 +342,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible39->setIntitule("post permet de recuperer une donnée, get de l'envoyer");
         $reponsePossible39->setEstJuste(false);
         $reponsePossible39->setEstActif(false);
-        $reponsePossible39->setQuestion($this->questionRepository->findOneBy(14));
+        $reponsePossible39->setQuestion($this->questionRepository->find(14));
         $manager->persist($reponsePossible39);
 
         $reponsePossible40 = new ReponsePossible();
@@ -350,7 +350,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible40->setIntitule("post permet de recuperer une donnée, get de l'envoyer");
         $reponsePossible40->setEstJuste(true);
         $reponsePossible40->setEstActif(false);
-        $reponsePossible40->setQuestion($this->questionRepository->findOneBy(14));
+        $reponsePossible40->setQuestion($this->questionRepository->find(14));
         $manager->persist($reponsePossible40);
 
         // CONCERNE LA QUESTION 15        
@@ -359,7 +359,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible41->setIntitule("hypertext markup langage");
         $reponsePossible41->setEstJuste(true);
         $reponsePossible41->setEstActif(false);
-        $reponsePossible41->setQuestion($this->questionRepository->findOneBy(15));
+        $reponsePossible41->setQuestion($this->questionRepository->find(15));
         $manager->persist($reponsePossible41);
 
         $reponsePossible42 = new ReponsePossible();
@@ -367,7 +367,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible42->setIntitule("hyperlien markup langage");
         $reponsePossible42->setEstJuste(false);
         $reponsePossible42->setEstActif(false);
-        $reponsePossible42->setQuestion($this->questionRepository->findOneBy(15));
+        $reponsePossible42->setQuestion($this->questionRepository->find(15));
         $manager->persist($reponsePossible42);
 
         $reponsePossible43 = new ReponsePossible();
@@ -375,7 +375,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible43->setIntitule("hypertetxt media langage");
         $reponsePossible43->setEstJuste(false);
         $reponsePossible43->setEstActif(false);
-        $reponsePossible43->setQuestion($this->questionRepository->findOneBy(15));
+        $reponsePossible43->setQuestion($this->questionRepository->find(15));
         $manager->persist($reponsePossible43);
 
         // CONCERNE LA QUESTION 16        
@@ -384,7 +384,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible44->setIntitule("java");
         $reponsePossible44->setEstJuste(false);
         $reponsePossible44->setEstActif(false);
-        $reponsePossible44->setQuestion($this->questionRepository->findOneBy(16));
+        $reponsePossible44->setQuestion($this->questionRepository->find(16));
         $manager->persist($reponsePossible44);
 
         $reponsePossible45 = new ReponsePossible();
@@ -392,7 +392,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible45->setIntitule("javascript");
         $reponsePossible45->setEstJuste(true);
         $reponsePossible45->setEstActif(false);
-        $reponsePossible45->setQuestion($this->questionRepository->findOneBy(16));
+        $reponsePossible45->setQuestion($this->questionRepository->find(16));
         $manager->persist($reponsePossible45);
 
         $reponsePossible46 = new ReponsePossible();
@@ -400,7 +400,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible46->setIntitule("C++");
         $reponsePossible46->setEstJuste(false);
         $reponsePossible46->setEstActif(false);
-        $reponsePossible46->setQuestion($this->questionRepository->findOneBy(16));
+        $reponsePossible46->setQuestion($this->questionRepository->find(16));
         $manager->persist($reponsePossible46);
 
         // CONCERNE LA QUESTION 17        
@@ -409,7 +409,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible47->setIntitule("java");
         $reponsePossible47->setEstJuste(false);
         $reponsePossible47->setEstActif(false);
-        $reponsePossible47->setQuestion($this->questionRepository->findOneBy(17));
+        $reponsePossible47->setQuestion($this->questionRepository->find(17));
         $manager->persist($reponsePossible47);
 
         $reponsePossible48 = new ReponsePossible();
@@ -417,7 +417,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible48->setIntitule("PHP");
         $reponsePossible48->setEstJuste(true);
         $reponsePossible48->setEstActif(false);
-        $reponsePossible48->setQuestion($this->questionRepository->findOneBy(17));
+        $reponsePossible48->setQuestion($this->questionRepository->find(17));
         $manager->persist($reponsePossible48);
 
         // CONCERNE LA QUESTION 18
@@ -426,7 +426,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible49->setIntitule("une entreprise");
         $reponsePossible49->setEstJuste(false);
         $reponsePossible49->setEstActif(false);
-        $reponsePossible49->setQuestion($this->questionRepository->findOneBy(18));
+        $reponsePossible49->setQuestion($this->questionRepository->find(18));
         $manager->persist($reponsePossible49);
 
         $reponsePossible50 = new ReponsePossible();
@@ -434,7 +434,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible50->setIntitule("un organisme");
         $reponsePossible50->setEstJuste(true);
         $reponsePossible50->setEstActif(false);
-        $reponsePossible50->setQuestion($this->questionRepository->findOneBy(18));
+        $reponsePossible50->setQuestion($this->questionRepository->find(18));
         $manager->persist($reponsePossible50);
 
         // CONCERNE LA QUESTION 19
@@ -443,7 +443,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible51->setIntitule("un langage");
         $reponsePossible51->setEstJuste(false);
         $reponsePossible51->setEstActif(false);
-        $reponsePossible51->setQuestion($this->questionRepository->findOneBy(19));
+        $reponsePossible51->setQuestion($this->questionRepository->find(19));
         $manager->persist($reponsePossible51);
 
         $reponsePossible52 = new ReponsePossible();
@@ -451,7 +451,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible52->setIntitule("un navigateur");
         $reponsePossible52->setEstJuste(true);
         $reponsePossible52->setEstActif(false);
-        $reponsePossible52->setQuestion($this->questionRepository->findOneBy(19));
+        $reponsePossible52->setQuestion($this->questionRepository->find(19));
         $manager->persist($reponsePossible52);
 
         // CONCERNE LA QUESTION 20
@@ -460,7 +460,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible53->setIntitule("oui");
         $reponsePossible53->setEstJuste(true);
         $reponsePossible53->setEstActif(false);
-        $reponsePossible53->setQuestion($this->questionRepository->findOneBy(20));
+        $reponsePossible53->setQuestion($this->questionRepository->find(20));
         $manager->persist($reponsePossible51);
 
         $reponsePossible54 = new ReponsePossible();
@@ -468,7 +468,7 @@ class ReponsePossibleFixtures extends Fixture implements DependentFixtureInterfa
         $reponsePossible54->setIntitule("non");
         $reponsePossible54->setEstJuste(false);
         $reponsePossible54->setEstActif(false);
-        $reponsePossible54->setQuestion($this->questionRepository->findOneBy(20));
+        $reponsePossible54->setQuestion($this->questionRepository->find(20));
         $manager->persist($reponsePossible54);
 
         $manager->flush();
