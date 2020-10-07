@@ -34,7 +34,7 @@ class StandardUserType extends AbstractType
             ->add('telephone')
             ->add('numeroPE')
             ->add('commentaire')
-            ->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
+            //->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
         ;
         
     }

@@ -79,6 +79,11 @@ class User implements UserInterface
      */
     private $commentaire;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $cv;
+
 
 
 
@@ -293,6 +298,18 @@ class User implements UserInterface
     public function __toString()
     {
     return (string) $this->getFirstname(). " " .$this->getLastname();
+    }
+
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    public function setCv( $cv)
+    {
+        $this->cv = $cv;
+
+        return $this;
     }
 
 
