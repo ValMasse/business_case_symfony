@@ -126,6 +126,10 @@ class TestTechniqueController extends AbstractController
             ]);
     }
 
+    public function onClickActivateTT(){
+
+    }
+
     
 
 
