@@ -28,6 +28,7 @@ class TestTechniqueFixtures extends Fixture implements DependentFixtureInterface
         $testTechnique->setAdministrateur($this->administrateurRepository->find(random_int(1, 2)));
         $testTechnique->setDate($faker->dateTimeBetween("- 1 year", "now"));
         $testTechnique->setIntitule("Test Technique N° $i");
+        $testTechnique->setEstActif(false);
         $manager->persist($testTechnique);
         }
         $manager->flush();
