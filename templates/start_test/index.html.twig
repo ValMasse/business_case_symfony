@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TestTechnique{% endblock %}
+
+{% block body %}
+    <br>
+    <h1 style="text-align:center">PASSER LE TEST TECHNIQUE</h1>
+    <br>
+    <h5>Vous êtes sur le point de passer le test technique. Le Test dure 60 minutes, un décompte sera affiché sur la page</h5><br>
+    <h5>Lorsque le top départ sera donné par le chef de projet, lancez le Test ! Sachez que lorsque vous aurez lancé le test,</h5><br>
+    <h5>il ne sera pas possible de faire de pause. Une fois le Test terminé, bien penser à cliquer sur le bouton 'terminer le Test'</h5><br>
+    <h5 style="text-align:center">BONNE CHANCE ! (Même si la chance n'y est pour rien)</h5><br>
+
+    <br><br>
+
+    <button type="button" class="btn btn-success btn-lg float-right">
+    <a href="{{ path('start_test') }}">Démarrer le Test</a>
+    </button>
+
+    <br><br>
+
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('homepage') }}">Retour à l'acccueil</a>
+    </button>
+{% endblock %}

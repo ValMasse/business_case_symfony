@@ -44,6 +44,11 @@ class TestTechnique
      */
     private $questions;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $estActif;
+
 
     public function __construct()
     {
@@ -156,6 +161,18 @@ class TestTechnique
                 $question->setTestTechnique(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEstActif(): ?bool
+    {
+        return $this->estActif;
+    }
+
+    public function setEstActif(bool $estActif): self
+    {
+        $this->estActif = $estActif;
 
         return $this;
     }
