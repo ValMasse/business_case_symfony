@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201007144317 extends AbstractMigration
+final class Version20201008211439 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -31,7 +31,7 @@ final class Version20201007144317 extends AbstractMigration
         $this->addSql('CREATE TABLE question (id INT AUTO_INCREMENT NOT NULL, domaine_id INT NOT NULL, niveau_id INT NOT NULL, test_technique_id INT DEFAULT NULL, enonce VARCHAR(255) NOT NULL, est_eliminatoire TINYINT(1) NOT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_B6F7494E4272FC9F (domaine_id), INDEX IDX_B6F7494EB3E9C81 (niveau_id), INDEX IDX_B6F7494E330C2B16 (test_technique_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reponse_possible (id INT AUTO_INCREMENT NOT NULL, question_id INT NOT NULL, code VARCHAR(20) NOT NULL, intitule VARCHAR(255) NOT NULL, est_juste TINYINT(1) NOT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_21290E491E27F6BF (question_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE session (id INT AUTO_INCREMENT NOT NULL, ville_session_id INT NOT NULL, formation_id INT NOT NULL, chef_projet_id INT DEFAULT NULL, date DATETIME DEFAULT NULL, INDEX IDX_D044D5D4BF6308D6 (ville_session_id), INDEX IDX_D044D5D45200282E (formation_id), INDEX IDX_D044D5D4D3B0D67C (chef_projet_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE test_technique (id INT AUTO_INCREMENT NOT NULL, administrateur_id INT DEFAULT NULL, date DATETIME DEFAULT NULL, intitule VARCHAR(255) DEFAULT NULL, INDEX IDX_55A60F8B7EE5403C (administrateur_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE test_technique (id INT AUTO_INCREMENT NOT NULL, administrateur_id INT DEFAULT NULL, date DATETIME DEFAULT NULL, intitule VARCHAR(255) DEFAULT NULL, est_actif TINYINT(1) NOT NULL, INDEX IDX_55A60F8B7EE5403C (administrateur_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, firstname VARCHAR(100) NOT NULL, lastname VARCHAR(100) NOT NULL, date_de_naissance DATETIME DEFAULT NULL, telephone VARCHAR(20) DEFAULT NULL, numero_pe VARCHAR(10) DEFAULT NULL, commentaire VARCHAR(255) DEFAULT NULL, cv VARCHAR(255) DEFAULT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user_info_co (user_id INT NOT NULL, info_co_id INT NOT NULL, INDEX IDX_68BBEEF0A76ED395 (user_id), INDEX IDX_68BBEEF0E8ACC402 (info_co_id), PRIMARY KEY(user_id, info_co_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user_reponse_possible (user_id INT NOT NULL, reponse_possible_id INT NOT NULL, INDEX IDX_5C3C4C94A76ED395 (user_id), INDEX IDX_5C3C4C94C53BC6BC (reponse_possible_id), PRIMARY KEY(user_id, reponse_possible_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

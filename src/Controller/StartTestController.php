@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Repository\TestTechniqueRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class StartTestController extends AbstractController
@@ -24,10 +24,10 @@ class StartTestController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/start/test", name="start_test", methods={"GET","POST"})
      */
-    public function start(Request $request, TestTechniqueRepository $testTechniqueRepository)
+    public function start(TestTechniqueRepository $testTechniqueRepository)
     {
         return $this->render('start_test/startTest.html.twig', [
-            'tests_techniques' => $testTechniqueRepository->findAll(),
+            'tests_techniques' => $testTechniqueRepository->activeTestTechnique(),
         ]);
     }
 }

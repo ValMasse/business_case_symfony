@@ -12,6 +12,7 @@
                 <th>Intitulé du Test Technique</th>
                 <th>Date de création</th>
                 <th>actions</th>
+                <th>(dés)activer</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,20 @@
                     <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Modifier</a>
                     </button>
                 </td>
+                
+                {% if test_technique.estActif == true %}
+                <td>                
+                    <button type="button" class="btn btn-outline-danger">
+                    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Désactiver</a>
+                    </button>
+                </td>
+                {% else %}
+                <td>
+                    <button type="button" class="btn btn-outline-warning">
+                    <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Activer</a>
+                    </button>
+                </td>  
+                {% endif %}             
             </tr>
         {% else %}
             <tr>

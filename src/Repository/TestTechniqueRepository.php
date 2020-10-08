@@ -22,17 +22,14 @@ class TestTechniqueRepository extends ServiceEntityRepository
     // /**
     //  * @return TestTechnique[] Returns an array of TestTechnique objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function activeTestTechnique()
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.id = :question.test_technique_id')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
+            ->andWhere('t.estActif = :true')
             ->getQuery()
             ->getResult()
         ;
-    }*/
+    }
     
 
     /*
