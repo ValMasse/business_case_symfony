@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Start Test Technique
+{% endblock %}
+
+{% block body %}
+	<h1>Test Technique en cours ...</h1>
+	<br>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Intitulé</th>
+			</tr>
+		</thead>
+		<tbody>
+				{% for test_technique in tests_techniques %}
+                {% if test_technique.estActif == true %}
+                    {% for question in test_technique.questions %}
+				<tr>
+					<td>{{ question.id }}</td>
+					<td>{{ question.enonce }}</td>
+				</tr>
+                <br>
+                {% for reponse_possible in reponses_possibles %}
+                <tr>
+					<td>{{ reponse_possible.id }}</td>
+					<td>{{ reponse_possible.intitule }}</td>
+				</tr>
+                    {% endfor %}
+                    {% endfor %}
+                {% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<br><br>
+
+	<button type="button" class="btn btn-danger">
+		<a href="{{ path('homepage') }}">Abandonner</a>
+	</button>
+
+{% endblock %}
+

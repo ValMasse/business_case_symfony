@@ -22,7 +22,7 @@ class TestTechniqueRepository extends ServiceEntityRepository
     // /**
     //  * @return TestTechnique[] Returns an array of TestTechnique objects
     //  */
-    public function activeTestTechnique()
+    public function findActiveTestTechnique()
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.estActif = :true')
