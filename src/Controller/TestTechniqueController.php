@@ -127,6 +127,7 @@ class TestTechniqueController extends AbstractController
     }*/
 
     public function onClickActivateTT(){
+        dd('KING');
 
     }
 
