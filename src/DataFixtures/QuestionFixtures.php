@@ -159,7 +159,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question15->setEstActif(false);
         $question15->setDomaine($this->domaineRepository->find(1));
         $question15->setNiveau($this->niveauRepository->find(3));
-        $question15->setTestTechnique($this->testTechniqueRepository->find(5));
+        $question15->setTestTechnique($this->testTechniqueRepository->find(1));
         $manager->persist($question15); 
 
         $question16 = new Question();
@@ -168,7 +168,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question16->setEstActif(false);
         $question16->setDomaine($this->domaineRepository->find(1));
         $question16->setNiveau($this->niveauRepository->find(3));
-        $question16->setTestTechnique($this->testTechniqueRepository->find(6));
+        $question16->setTestTechnique($this->testTechniqueRepository->find(1));
         $manager->persist($question16); 
 
         $question17 = new Question();
@@ -177,7 +177,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question17->setEstActif(false);
         $question17->setDomaine($this->domaineRepository->find(2));
         $question17->setNiveau($this->niveauRepository->find(2));
-        $question17->setTestTechnique($this->testTechniqueRepository->find(7));
+        $question17->setTestTechnique($this->testTechniqueRepository->find(2));
         $manager->persist($question17);
 
         $question18 = new Question();
@@ -186,7 +186,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question18->setEstActif(false);
         $question18->setDomaine($this->domaineRepository->find(3));
         $question18->setNiveau($this->niveauRepository->find(2));
-        $question18->setTestTechnique($this->testTechniqueRepository->find(8));
+        $question18->setTestTechnique($this->testTechniqueRepository->find(3));
         $manager->persist($question18);
 
         $question19 = new Question();
@@ -195,7 +195,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question19->setEstActif(false);
         $question19->setDomaine($this->domaineRepository->find(4));
         $question19->setNiveau($this->niveauRepository->find(1));
-        $question19->setTestTechnique($this->testTechniqueRepository->find(9));
+        $question19->setTestTechnique($this->testTechniqueRepository->find(2));
         $manager->persist($question19);
 
         $question20 = new Question();
@@ -204,7 +204,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question20->setEstActif(false);
         $question20->setDomaine($this->domaineRepository->find(2));
         $question20->setNiveau($this->niveauRepository->find(2));
-        $question20->setTestTechnique($this->testTechniqueRepository->find(10));
+        $question20->setTestTechnique($this->testTechniqueRepository->find(1));
         $manager->persist($question20);
 
         $manager->flush();
