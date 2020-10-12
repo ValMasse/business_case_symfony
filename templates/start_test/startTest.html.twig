@@ -17,18 +17,18 @@
 				{% for test_technique in tests_techniques %}
                 {% if test_technique.estActif == true %}
                     {% for question in test_technique.questions %}
+					
 				<tr>
 					<td>{{ question.id }}</td>
 					<td>{{ question.enonce }}</td>
 				</tr>
-                <br>
-                {% for reponse_possible in reponses_possibles %}
-                <tr>
-					<td>{{ reponse_possible.id }}</td>
-					<td>{{ reponse_possible.intitule }}</td>
+                <br>				
+				{% for reponsePossible in question.reponsesPossibles %}
+				<tr>
+					<td>{{ reponsePossible.intitule }}</td>
 				</tr>
                     {% endfor %}
-                    {% endfor %}
+					{% endfor %}
                 {% endif %}
 			{% endfor %}
 		</tbody>

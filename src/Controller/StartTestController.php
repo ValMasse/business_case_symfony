@@ -29,9 +29,8 @@ class StartTestController extends AbstractController
     {
         //$testsTechniques = $testTechniqueRepository->findAll();
 
-        return $this->render('start_test/startTest.html.twig', [
-            
-            'tests_techniques' => $testTechniqueRepository->findAll(),            
+        return $this->render('start_test/startTest.html.twig', [            
+            'tests_techniques' => $testTechniqueRepository->findAll(),         
         ]);
     }
 }
