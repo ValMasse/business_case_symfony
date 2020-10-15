@@ -6,7 +6,13 @@
 
 
 {% block body %}
-<link href="style/home.css" rel="stylesheet" >
+<link href="style/home.css" rel="stylesheet" ><br><br><br><br><br><br>
+{% if not app.user %}
+<h4 style="text-align:center">Avec <strong>HUMAN BOOSTER,</strong></h4><br>
+<h4 style="text-align:center">embarquez dans une nouvelle dimension de la formation !</h4><br>
+<h4 style="text-align:center">Cette interface vous permettra de passer le Test Technique pour la formation de votre choix.</h4><br><br>
+{% endif %}
+
 {% if app.user %}
 <h1>Bonjour,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;{{ app.user.firstname }} {{ app.user.lastname }}</h1>
