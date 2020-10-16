@@ -39,7 +39,7 @@ class QuestionRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findQuestionsForEachTestByOne($testTechniqueId, int $offset): Paginator
+    /*public function findQuestionsForEachTestByOne($testTechniqueId, int $offset): Paginator
     {
         $query = $this->createQueryBuilder('q')
             ->innerJoin('q.testTechnique', 'testTechnique')
@@ -52,7 +52,7 @@ class QuestionRepository extends ServiceEntityRepository
             ;
 
             return new Paginator($query);
-    }
+    }*/
 
     /*
     public function findOneBySomeField($value): ?Question

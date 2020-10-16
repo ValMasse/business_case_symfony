@@ -110,7 +110,7 @@ class TestTechniqueController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/start", name="test_technique_start", methods={"GET", "POST"})
      */
-    public function startTheTest(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
+    /*public function startTheTest(Request $request, TestTechnique $testTechnique, QuestionRepository $questionRepository): Response
     {
         $id = $request->attributes->get('_route_params');
         $testTechniqueId = $id['id'];
@@ -124,6 +124,11 @@ class TestTechniqueController extends AbstractController
             'precedent' => $offset - QuestionRepository::PAGINATOR_PER_PAGE,
             'suivant' => min(count($paginator), $offset + QuestionRepository::PAGINATOR_PER_PAGE),
             ]);
+    }*/
+
+    public function onClickActivateTT(){
+        dd('KING');
+
     }
 
     

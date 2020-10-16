@@ -12,6 +12,7 @@
                 <th>Intitulé du Test Technique</th>
                 <th>Date de création</th>
                 <th>actions</th>
+                <th>est actif</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,16 @@
                     <a href="{{ path('test_technique_edit', {'id': test_technique.id}) }}">Modifier</a>
                     </button>
                 </td>
+                
+                {% if test_technique.estActif == true %}
+                <td>                
+                    Oui
+                </td>
+                {% else %}
+                <td>
+                    Non
+                </td>  
+                {% endif %}             
             </tr>
         {% else %}
             <tr>
