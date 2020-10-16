@@ -5,25 +5,54 @@ namespace App\Controller;
 use App\Entity\Calendar;
 use App\Form\CalendarType;
 use App\Repository\CalendarRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted("ROLE_CHEFPROJET")
  * @Route("/calendar")
  */
 class CalendarController extends AbstractController
 {
-    
     /**
      * @Route("/", name="calendar_index", methods={"GET"})
      */
     public function index(CalendarRepository $calendarRepository): Response
     {
         return $this->render('calendar/index.html.twig', [
-            'controller_name' => 'CalendarController',
+            'calendars' => $calendarRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/calendar_display", name="calendar_home", methods={"GET"})
+     */
+    public function calendarDisplay(CalendarRepository $calendarRepository): Response
+    {
+        $events = $calendarRepository->findAll();
+
+        $rdvs = [];
+
+        foreach($events as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('d-M-Y H:i:s'),
+                'end' => $event->getEnd()->format('d-M-Y H:i:s'),
+                'title' => $event->getTitle(),
+                'comment' => $event->getComment(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+                'allDay' => $event->getAllDay(),
+            ]; 
+        }
+
+        $data = json_encode($rdvs);
+
+        return $this->render('calendar/calendar.html.twig', compact('data'));
     }
 
     /**
