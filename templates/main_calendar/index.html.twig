@@ -12,7 +12,8 @@
 {% endblock %}
 
 {% block body %}
-{{dump(data)}}
+
+
 <div id="calendrier"></div>
 {% endblock %}
 
@@ -20,9 +21,6 @@
 <script>
 
     window.onload = () => {
-        /*let div = document.querySelector("#donnees");
-        let evenements = div.dataset.event;
-        console.log(evenements);*/
         let calendarElt = document.querySelector("#calendrier");
         let calendar = new FullCalendar.Calendar(calendarElt, {
             initialView: 'timeGridWeek',
@@ -33,12 +31,12 @@
                 center: 'title',
                 end: 'dayGridMonth, timeGridWeek'
             },
-            events: {{ data|raw}}
+            events: {{ data|raw}},
+            editable: true,
+            eventResizableFromStart: true
         }) 
         calendar.render()
     }
     
 </script>
-
-<a href="{{ path('calendar_new') }}">Créer un Evénement</a>
 {% endblock %}
