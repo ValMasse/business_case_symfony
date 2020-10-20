@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activate TestTechnique{% endblock %}
+
+{% block body %}
+    <h1>(Dés)activation du Test</h1>
+    <br>
+    {% if test_technique.estActif == true %}
+    <h3>Etes-vous sûr de vouloir désactiver ce Test Technique?</h3>
+    {% else %}
+    <h3>Etes-vous sûr de vouloir activer ce Test Technique?</h3>
+    {% endif %}
+    
+
+    <br><br>
+
+    {{ include('test_technique/_form_activation_button.html.twig', {'button_label': 'Modifier'}) }}
+
+    <button type="button" class="btn btn-info">
+    <a href="{{ path('test_technique_index') }}">Retour à la liste</a>
+    </button>
+
+{% endblock %}

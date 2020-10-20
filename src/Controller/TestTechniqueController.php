@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\TestTechnique;
+use App\Form\ActivateTestType;
 use App\Form\TestTechniqueType;
 use App\Repository\QuestionRepository;
 use App\Repository\TestTechniqueRepository;
@@ -86,7 +87,7 @@ class TestTechniqueController extends AbstractController
         return $this->render('test_technique/edit.html.twig', [
             'test_technique' => $testTechnique,
             'form' => $form->createView(),
-            'questions' => $questionRepository->findAll(),
+            'questions' => $questionRepository->findQuestionsForEachTest($testTechnique),
         ]);
     }
 
@@ -126,9 +127,30 @@ class TestTechniqueController extends AbstractController
             ]);
     }*/
 
-    public function onClickActivateTT(){
+    /*public function onClickActivateTT(){
         dd('KING');
 
+    }*/
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/{id}/activate", name="test_technique_activate", methods={"GET","POST"})
+     */
+    public function activateButton(Request $request, TestTechnique $testTechnique): Response
+    {
+        $formActivate = $this->createForm(ActivateTestType::class, $testTechnique);
+        $formActivate->handleRequest($request);
+
+        if ($formActivate->isSubmitted() && $formActivate->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('test_technique_index');
+        }
+
+        return $this->render('test_technique/activate_test.html.twig', [
+            'test_technique' => $testTechnique,
+            'formActivate' => $formActivate->createView(),
+        ]);
     }
 
     
