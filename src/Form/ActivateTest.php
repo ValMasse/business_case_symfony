@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TestTechnique;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,8 +14,13 @@ class ActivateTestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('estActif')
-        ;
+            ->add('estActif', ChoiceType::class, [
+                'choices'  => [
+                    'ACTIVER' => true,
+                    'DESACTIVER' => false,
+                ],
+            ]);
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)
