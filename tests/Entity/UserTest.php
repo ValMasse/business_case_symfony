@@ -23,23 +23,22 @@ class UserTest extends KernelTestCase {
         ->setCommentaire('');
     }
 
-    public function testValidEntity() {
+    public function assertHasErrors(User $userTest, int $number = 0){
 
-        $userTest = $this->getEntity();
         self::bootKernel();
         $error = self::$container->get('validator')->validate($userTest);
-        $this->assertCount(0, $error);
+        $this->assertCount($number, $error);
+    }
+
+    public function testValidEntity() {
+
+        $this->assertHasErrors($this->getEntity(), 0);       
     }
 
     public function testInvalidEntity() {
 
-        $userTest = $this->getEntity()->setEmail('jeanjacques#gmail.com')
-        ->setTelephone('0601020304X')
-        ->setNumeroPE('12345678910')
-        ->setCommentaire('');
-
-        self::bootKernel();
-        $error = self::$container->get('validator')->validate($userTest);
-        $this->assertCount(3, $error);
+        $this->assertHasErrors($this->getEntity()->setEmail('jeanjacques#gmail.com'), 1);
+        $this->assertHasErrors($this->getEntity()->setTelephone('0601020304X'), 1);
+        $this->assertHasErrors($this->getEntity()->setNumeroPE('12345678910'), 1);    
     }
 }
