@@ -25,6 +25,7 @@ class DomaineController extends AbstractController
         return $this->render('domaine/index.html.twig', [
             'domaines' => $domaineRepository->findAll(),
         ]);
+        
     }
 
     /**
