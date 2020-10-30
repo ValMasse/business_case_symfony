@@ -36,8 +36,8 @@ class UserType extends AbstractType
             ->add('numeroPE')
             ->add('commentaire')
             ->add('infosCos')
-            //->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
-            //->add('cv', FileType::class, array('data_class' => null,'required' => false))
+            ->add('cv', FileType::class, array('label' => 'CV (PDF file)'))
+            ->add('cv', FileType::class, array('data_class' => null,'required' => false))
         ;
     }
 
