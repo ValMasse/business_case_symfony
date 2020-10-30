@@ -204,7 +204,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $question20->setEstActif(false);
         $question20->setDomaine($this->domaineRepository->find(2));
         $question20->setNiveau($this->niveauRepository->find(2));
-        $question20->setTestTechnique($this->testTechniqueRepository->find(1));
+        $question20->setTestTechnique($this->testTechniqueRepository->find(2));
         $manager->persist($question20);
 
         $manager->flush();
