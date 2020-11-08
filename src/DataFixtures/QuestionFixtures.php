@@ -28,7 +28,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {       
         $question1 = new Question();
-        $question1->setEnonce("Symfony est framework comportant quel langage?");
+        $question1->setEnonce("Symfony est framework qui concerne quel langage?");
         $question1->setEstEliminatoire((bool)random_int(0, 1));
         $question1->setEstActif(false);
         $question1->setDomaine($this->domaineRepository->find(2));

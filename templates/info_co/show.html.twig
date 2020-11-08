@@ -28,9 +28,13 @@
     <a href="{{ path('info_co_index') }}">retour à la liste</a>
     </button>
 
+    {% if (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
     <button type="button" class="btn btn-warning">
     <a href="{{ path('info_co_edit', {'id': info_co.id}) }}">Modifier</a>
     </button>
+    {% endif %}
 
+    {% if (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
     {{ include('info_co/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}

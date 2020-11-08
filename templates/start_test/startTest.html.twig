@@ -6,33 +6,18 @@
 {% block body %}
 <br>
 	<h1 style="text-align:center">Test Technique en cours ...</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Intitulé</th>
-			</tr>
-		</thead>
-		<tbody>
-				{% for test_technique in tests_techniques %}
-                {% if test_technique.estActif == true %}
-                    {% for question in test_technique.questions %}
-					
-				<tr>
-					<td>{{ question.id }}</td>
-					<td>{{ question.enonce }}</td>
-				</tr>
-                <br>				
-				{% for reponsePossible in question.reponsesPossibles %}
-				<tr>
-					<td>{{ reponsePossible.intitule }}</td>
-				</tr>
-                    {% endfor %}
-					{% endfor %}
-                {% endif %}
-			{% endfor %}
-		</tbody>
-	</table>
+	<form method="post">
+	{% for test_technique in tests_techniques %}
+        {% if test_technique.estActif == true %}
+            {% for question in test_technique.questions %}
+	<br><strong>{{question.enonce}}</strong><br>
+	{% for reponsePossible in question.reponsesPossibles %}
+	<br>{{ reponsePossible.intitule }}<input type="checkbox" name="reponse"/><br>
+	{% endfor %}
+	{% endfor %}
+	{% endif %}
+	{% endfor %}
+	</form>
 
 	<br><br>
 
