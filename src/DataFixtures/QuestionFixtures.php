@@ -28,7 +28,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {       
         $question1 = new Question();
-        $question1->setEnonce("Symfony est framework qui concerne quel langage?");
+        $question1->setEnonce("Symfony est un framework qui concerne quel langage?");
         $question1->setEstEliminatoire((bool)random_int(0, 1));
         $question1->setEstActif(false);
         $question1->setDomaine($this->domaineRepository->find(2));
@@ -118,7 +118,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($question10);
 
         $question11 = new Question();
-        $question11->setEnonce("Sur internet, que signifie www?");
+        $question11->setEnonce("Sur internet, que signifie 'www'?");
         $question11->setEstEliminatoire(false);
         $question11->setEstActif(false);
         $question11->setDomaine($this->domaineRepository->find(3));
