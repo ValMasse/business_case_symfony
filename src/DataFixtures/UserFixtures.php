@@ -19,6 +19,7 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        // Create some students
         $faker = Factory::create('fr_FR');
 
         for($i = 0; $i < 60; $i++){        
@@ -37,7 +38,7 @@ class UserFixtures extends Fixture
         $manager->persist($user);
         }
         
-        // Création User avec droits admin
+        // Create an Admin user
         $userAdmin = new User();
         $userAdmin->setEmail("admin@admin.com");
         $userAdmin->setFirstname("John");
@@ -50,7 +51,7 @@ class UserFixtures extends Fixture
 
         $manager->flush();
 
-        // Création User avec droits du Chef de Projet
+        // Create an ChefDeProjet user
         $userchefProjet = new User();
         $userchefProjet->setEmail("charleneducreux@humanbooster.com");
         $userchefProjet->setFirstname("Charlène");

@@ -7,7 +7,7 @@
 		<ul
 			class="navbar-nav mx-auto" style="width:33%;">
 
-			{# ...  Connexion / Inscription  #}
+			{# ...  Connexion / Sign up  #}
 			{% if not app.user %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
@@ -53,7 +53,7 @@
 
 			
 			
-			{# ...  Menu déroulant - Administrateur  #}
+			{# ...  DropDown menu - Admin  #}
 			{% if (is_granted('ROLE_ADMIN') and (app.user)) %}
 				<li class="nav-item dropdown">
         			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
@@ -66,7 +66,7 @@
           			<a class="dropdown-item" href="{{ path('info_co_index') }}">Réunions d'informations</a>
         			</div>
      			</li>
-			{# ...  Menu déroulant - Chef de Projet !  #}
+			{# ...  DropDown menu - Chef de Projet !  #}
 			{% elseif (is_granted('ROLE_CHEFPROJET') and (app.user)) %}
 				<li class="nav-item dropdown">
         			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion</a>
@@ -79,7 +79,7 @@
 					  <a class="dropdown-item" href="{{ path('main_calendar') }}">Agenda</a>
         			</div>
      			</li>
-			{# ...  Menu déroulant - standard User  #}
+			{# ...  DropDown menu - standard User  #}
 			{% elseif (is_granted('ROLE_USER') and (app.user)) %}
 				<li class="nav-item dropdown">
         			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plus</a>

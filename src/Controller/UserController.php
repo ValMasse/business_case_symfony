@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
  */
 class UserController extends AbstractController
 {
-                             // PARTIE USER
+                             // USER PART
     
     /**
      * @Route("/profile", name="user_profile")
@@ -33,7 +33,7 @@ class UserController extends AbstractController
     }
 
 
-                                        // PARTIE ADMIN
+                            // ADMIN PART
 
     /**
      * @IsGranted("ROLE_ADMIN")
@@ -45,7 +45,7 @@ class UserController extends AbstractController
         return $this->render('user/profileAdmin.html.twig');
     }
 
-                                    // PARTIE CHEF DE PROJET
+                            // CHEF DE PROJET PART
 
     /**
      * @IsGranted("ROLE_CHEFPROJET")
@@ -56,7 +56,7 @@ class UserController extends AbstractController
         return $this->render('user/profileChefProjet.html.twig');
     }
 
-                                    // PARTIE CRUD
+                            // CRUD PART
 
     /**
      * @IsGranted("ROLE_CHEFPROJET")
