@@ -21,10 +21,8 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
-    public const PAGINATOR_PER_PAGE = 1;
-
     // /**
-    //  * @return Question[] Returns an array of Question objects
+    //  * @return all questions for each test
     //  */
     
     public function findQuestionsForEachTest($testId)
